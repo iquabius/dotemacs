@@ -24,8 +24,8 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)                ;; if you use :diminish
-(require 'bind-key)
+(require 'diminish)
+;(require 'bind-key)
 ;(setq use-package-verbose t)
 
 ;;; Load the config
