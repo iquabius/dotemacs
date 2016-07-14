@@ -18,6 +18,87 @@ customize settings in [[file:init.el][init.el]].
 (load custom-file)
 #+end_src
 
+* Theme
+** Cyberpunk theme
+
+The [[https://github.com/n3mo/cyberpunk-theme.el][cyberpunk theme]] is dark and colorful. However, I don't like the
+boxes around the mode line.
+
+#+begin_src emacs-lisp
+(use-package cyberpunk-theme
+  :if (window-system)
+  :ensure t
+  :init
+  (progn
+    (load-theme 'cyberpunk t)
+    (set-face-attribute `mode-line nil
+                        :box nil)
+    (set-face-attribute `mode-line-inactive nil
+                        :box nil)))
+#+end_src
+
+I tend to switch themes more often than normal. For example, switching
+to a lighter theme (such as the default) or to a different theme
+depending on the time of day or my mood. Normally, switching themes is
+a multi-step process with ~disable-theme~ and ~load-theme~. The
+~switch-theme~ function will do that in one swoop. I just choose which
+theme I want to go to.
+
+** Solarized theme
+
+Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bbatsov's solarized themes]].
+
+#+begin_src emacs-lisp
+(use-package solarized-theme
+  :defer 10
+  :init
+  (setq solarized-use-variable-pitch nil)
+  :ensure t)
+#+end_src
+
+** Monokai theme
+
+#+begin_src emacs-lisp :tangle no
+(use-package monokai-theme
+  :if (window-system)
+  :ensure t
+  :init
+  (setq monokai-use-variable-pitch nil))
+#+end_src
+
+** Waher theme
+
+#+begin_src emacs-lisp :tangle no
+(use-package waher-theme
+  :if (window-system)
+  :ensure t
+  :init
+  (load-theme 'waher))
+#+end_src
+
+** Convenient theme functions
+
+#+begin_src emacs-lisp
+(defun switch-theme (theme)
+  "Disables any currently active themes and loads THEME."
+  ;; This interactive call is taken from `load-theme'
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+                             (mapc 'symbol-name
+                                   (custom-available-themes))))))
+  (let ((enabled-themes custom-enabled-themes))
+    (mapc #'disable-theme custom-enabled-themes)
+    (load-theme theme t)))
+
+(defun disable-active-themes ()
+  "Disables any currently active themes listed in `custom-enabled-themes'."
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(bind-key "<f12>" 'switch-theme)
+(bind-key "<f11>" 'disable-active-themes)
+#+end_src
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
