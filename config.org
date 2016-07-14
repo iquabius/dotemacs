@@ -11,7 +11,7 @@
 * Customize settings
 
 Set up the customize file to its own separate file, instead of saving
-customize settings in [[file:init.el][init.el]]. 
+customize settings in [[file:init.el][init.el]].
 
 #+begin_src emacs-lisp
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -98,6 +98,16 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 
 (bind-key "<f12>" 'switch-theme)
 (bind-key "<f11>" 'disable-active-themes)
+#+end_src
+* Font
+
+[[http://adobe-fonts.github.io/source-code-pro/][Source Code Pro]] is a nice monospaced font.
+
+Here's how we tell Emacs to use the font we want to use.
+
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist
+             '(font . "Source Code Pro-14"))
 #+end_src
 * Sane defaults
 
