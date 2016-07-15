@@ -177,6 +177,10 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 
 ;; Highlights current line
 (global-hl-line-mode)
+
+;; Allows you to “undo” (and “redo”) changes in the window configuration
+;; ‘C-c left’ and ‘C-c right’
+(winner-mode t)
 #+end_src
 
 The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
