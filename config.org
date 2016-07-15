@@ -169,6 +169,11 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 
 ;; Don't beep at me
 (setq visible-bell t)
+
+;; Make emacs maximized on startup
+;(to-add-list 'default-frame-alist '(fullscreen . maximized))
+;; Take emacs into fullscreen mode
+(set-frame-parameter nil 'fullscreen 'fullboth)
 #+end_src
 
 The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
