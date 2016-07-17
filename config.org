@@ -8,6 +8,14 @@
       user-mail-address "iquabius@gmail.com")
 #+end_src
 
+* Autocompletion
+
+#+begin_src emacs-lisp
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode))
+#+end_src
+
 * Customize settings
 
 Set up the customize file to its own separate file, instead of saving
@@ -17,7 +25,6 @@ customize settings in [[file:init.el][init.el]].
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 #+end_src
-
 * Theme
 ** Cyberpunk theme
 
