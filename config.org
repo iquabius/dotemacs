@@ -45,6 +45,7 @@ customize settings in [[file:init.el][init.el]].
          ("M-x" . helm-M-x)
          ("C-c M-x" . execute-extended-command)                  ;; old M-x
          ("M-y" . helm-show-kill-ring)
+         :map helm-map
          ("<tab>" . helm-execute-persistent-action)))
 #+end_src
 * Org-mode
