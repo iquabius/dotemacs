@@ -182,13 +182,18 @@ Here's how we tell Emacs to use the font we want to use.
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-14"))
 #+end_src
-* Magit
+* Git Integration
+
+Magit provides a nice interface to the /git/ version control system.
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :ensure t
     :bind (("C-x g" . magit-status)))
 #+END_SRC
+
+Git-gutter shows a sign in the gutter area indicating whether a line
+as inserted, modified or deleted.
 
 #+BEGIN_SRC emacs-lisp
   (use-package git-gutter
