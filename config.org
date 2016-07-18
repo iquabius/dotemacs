@@ -72,7 +72,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
              :prefix "C-x m"
              ("C-a" . mc/edit-beginnings-of-lines)
              ("C-e" . mc/edit-ends-of-lines)
-             ("C-m" mc/mark-all-dwim)
+             ("C-m" . mc/mark-all-dwim)
              ("a" . mc/mark-all-like-this)
              ("d" . mc/mark-all-symbols-like-this-in-defun)
              ("h" . mc-hide-unmatched-lines-mode)
