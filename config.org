@@ -27,27 +27,32 @@ customize settings in [[file:init.el][init.el]].
 #+end_src
 * Helm
 
-#+begin_src emacs-lisp
-(use-package helm
-  :ensure t
-  :diminish helm-mode
-  :init (progn
-          (require 'helm-config)
-          (use-package helm-ag :defer 10  :ensure t)
-          (setq helm-M-x-fuzzy-match t)
-          (helm-mode)
-          (use-package helm-swoop
-            :ensure t
-            :bind ("M-i" . helm-swoop)))
-  :bind (("C-c h" . helm-command-prefix)
-         ("C-x b" . helm-mini)
-         ("C-x C-f" . helm-find-files)
-         ("M-x" . helm-M-x)
-         ("C-c M-x" . execute-extended-command)                  ;; old M-x
-         ("M-y" . helm-show-kill-ring)
-         :map helm-map
-         ("<tab>" . helm-execute-persistent-action)))
-#+end_src
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+    :ensure t
+    :diminish helm-mode
+    :init (progn
+            (require 'helm-config)
+            (use-package helm-ag :defer 10  :ensure t)
+            (setq helm-M-x-fuzzy-match t)
+            (helm-mode)
+            (use-package helm-swoop
+              :ensure t
+              :config
+              (setq helm-swoop-split-direction 'split-window-horizontally)
+              (setq helm-swoop-use-fuzzy-match t)
+              :bind (("M-i" . helm-swoop)
+                     :map isearch-mode-map
+                     ("M-i" . helm-swoop-from-isearch))))
+    :bind (("C-c h" . helm-command-prefix)
+           ("C-x b" . helm-mini)
+           ("C-x C-f" . helm-find-files)
+           ("M-x" . helm-M-x)
+           ("C-c M-x" . execute-extended-command)                  ;; old M-x
+           ("M-y" . helm-show-kill-ring)
+           :map helm-map
+           ("<tab>" . helm-execute-persistent-action)))
+#+END_SRC
 * Org-mode
 ** Appearance
 
