@@ -190,6 +190,18 @@ Here's how we tell Emacs to use the font we want to use.
     :bind (("C-x g" . magit-status)))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  (use-package git-gutter
+    :ensure t
+    :diminish git-gutter-mode
+    :init
+    (global-git-gutter-mode t)
+    :config
+    (custom-set-variables
+     '(git-gutter:modified-sign "●"))
+    :bind (("C-x C-g" . git-gutter:toggle)))
+#+END_SRC
+
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
