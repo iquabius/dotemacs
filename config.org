@@ -199,7 +199,12 @@ Here's how we tell Emacs to use the font we want to use.
     :config
     (custom-set-variables
      '(git-gutter:modified-sign "●"))
-    :bind (("C-x C-g" . git-gutter:toggle)))
+    :bind (("C-x C-g" . git-gutter:toggle)
+           ("C-x v =" . git-gutter:popup-hunk)
+           ("C-x p" . git-gutter:previous-hunk)
+           ("C-x n" . git-gutter:next-hunk)
+           ("C-x v s" . git-gutter:stage-hunk)
+           ("C-x v r" . git-gutter:revert-hunk)))
 #+END_SRC
 
 * Sane defaults
