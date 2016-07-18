@@ -182,6 +182,14 @@ Here's how we tell Emacs to use the font we want to use.
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-14"))
 #+end_src
+* Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :bind (("C-x g" . magit-status)))
+#+END_SRC
+
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
