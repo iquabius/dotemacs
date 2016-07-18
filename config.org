@@ -91,6 +91,20 @@ new one (which shows the same information).
   (setq org-src-window-setup 'current-window)
 #+END_SRC
 
+Don't add extra indentation after edinting a code snippet in the org
+src buffer.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-preserve-indentation t)
+#+END_SRC
+
+Remove trailing lines from the source block after editing it in the
+org src buffer.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-src-strip-leading-and-trailing-blank-lines t)
+#+END_SRC
+
 * Theme
 ** Cyberpunk theme
 
