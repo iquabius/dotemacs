@@ -25,6 +25,7 @@ customize settings in [[file:init.el][init.el]].
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 #+end_src
+
 * Helm
 
 #+BEGIN_SRC emacs-lisp
@@ -54,6 +55,7 @@ customize settings in [[file:init.el][init.el]].
            :map helm-map
            ("<tab>" . helm-execute-persistent-action)))
 #+END_SRC
+
 * Multiple Cursors
 
 Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
@@ -233,6 +235,7 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 (bind-key "<f12>" 'switch-theme)
 (bind-key "<f11>" 'disable-active-themes)
 #+end_src
+
 * Font
 
 [[http://adobe-fonts.github.io/source-code-pro/][Source Code Pro]] is a nice monospaced font.
@@ -243,6 +246,7 @@ Here's how we tell Emacs to use the font we want to use.
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-14"))
 #+end_src
+
 * Git Integration
 
 Magit provides a nice interface to the /git/ version control system.
@@ -369,6 +373,7 @@ at point as the default value for occur.
 
 (bind-key "M-s o" 'occur-dwim)
 #+end_src
+
 * Superfluous stuff
 
 Let Nyan Cat show the buffer position in mode line.
