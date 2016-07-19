@@ -42,6 +42,7 @@ customize settings in [[file:init.el][init.el]].
               (setq helm-swoop-split-direction 'split-window-horizontally)
               (setq helm-swoop-use-fuzzy-match t)
               :bind (("M-i" . helm-swoop)
+                     ("M-I" . helm-swoop-back-to-last-point)
                      :map isearch-mode-map
                      ("M-i" . helm-swoop-from-isearch))))
     :bind (("C-c h" . helm-command-prefix)
