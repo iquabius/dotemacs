@@ -3,28 +3,28 @@
 
 * Personal Information
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (setq user-full-name "Josias Duarte Busiquia"
       user-mail-address "iquabius@gmail.com")
-#+end_src
+#+END_SRC
 
 * Autocompletion
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode))
-#+end_src
+#+END_SRC
 
 * Customize settings
 
 Set up the customize file to its own separate file, instead of saving
 customize settings in [[file:init.el][init.el]].
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
-#+end_src
+#+END_SRC
 
 * Helm
 
@@ -161,7 +161,7 @@ org src buffer.
 The [[https://github.com/n3mo/cyberpunk-theme.el][cyberpunk theme]] is dark and colorful. However, I don't like the
 boxes around the mode line.
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (use-package cyberpunk-theme
   :if (window-system)
   :ensure t
@@ -172,7 +172,7 @@ boxes around the mode line.
                         :box nil)
     (set-face-attribute `mode-line-inactive nil
                         :box nil)))
-#+end_src
+#+END_SRC
 
 I tend to switch themes more often than normal. For example, switching
 to a lighter theme (such as the default) or to a different theme
@@ -185,37 +185,37 @@ theme I want to go to.
 
 Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bbatsov's solarized themes]].
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (use-package solarized-theme
   :defer 10
   :init
   (setq solarized-use-variable-pitch nil)
   :ensure t)
-#+end_src
+#+END_SRC
 
 ** Monokai theme
 
-#+begin_src emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package monokai-theme
   :if (window-system)
   :ensure t
   :init
   (setq monokai-use-variable-pitch nil))
-#+end_src
+#+END_SRC
 
 ** Waher theme
 
-#+begin_src emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package waher-theme
   :if (window-system)
   :ensure t
   :init
   (load-theme 'waher))
-#+end_src
+#+END_SRC
 
 ** Convenient theme functions
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (defun switch-theme (theme)
   "Disables any currently active themes and loads THEME."
   ;; This interactive call is taken from `load-theme'
@@ -235,7 +235,7 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 
 (bind-key "<f12>" 'switch-theme)
 (bind-key "<f11>" 'disable-active-themes)
-#+end_src
+#+END_SRC
 
 * Font
 
@@ -243,10 +243,10 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 
 Here's how we tell Emacs to use the font we want to use.
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-14"))
-#+end_src
+#+END_SRC
 
 * Git Integration
 
@@ -284,7 +284,7 @@ Let's start with some sane defaults, shall we?
 
 Sources for this section include [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el][Magnars Sveen]] and [[http://pages.sachachua.com/.emacs.d/Sacha.html][Sacha Chua]].
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 ;; These functions are useful. Activate them.
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -354,13 +354,13 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 (use-package autopair
   :config
   (autopair-global-mode))
-#+end_src
+#+END_SRC
 
 The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
 [[http://oremacs.com/2015/01/26/occur-dwim/][his blog post at (or emacs]]. It takes the current region or the symbol
 at point as the default value for occur.
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)
@@ -373,17 +373,17 @@ at point as the default value for occur.
   (call-interactively 'occur))
 
 (bind-key "M-s o" 'occur-dwim)
-#+end_src
+#+END_SRC
 
 * Superfluous stuff
 
 Let Nyan Cat show the buffer position in mode line.
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (use-package nyan-mode
   :init
   (setq nyan-wavy-trail t)
   (setq nyan-animate-nyancat t)
   :config
   (nyan-mode 1))
-#+end_src
+#+END_SRC
