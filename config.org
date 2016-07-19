@@ -132,6 +132,7 @@ customize settings in [[file:init.el][init.el]].
                      ("M-i" . helm-swoop-from-isearch))))
     :bind (("C-c h" . helm-command-prefix)
            ("C-x b" . helm-mini)
+           ("C-x C-b" . ibuffer)
            ("C-x f" . helm-recentf)
            ("C-x C-f" . helm-find-files)
            ("M-x" . helm-M-x)
