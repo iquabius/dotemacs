@@ -378,19 +378,6 @@ at point as the default value for occur.
 (bind-key "M-s o" 'occur-dwim)
 #+END_SRC
 
-* Superfluous stuff
-
-Let Nyan Cat show the buffer position in mode line.
-
-#+BEGIN_SRC emacs-lisp
-(use-package nyan-mode
-  :init
-  (setq nyan-wavy-trail t)
-  (setq nyan-animate-nyancat t)
-  :config
-  (nyan-mode 1))
-#+END_SRC
-
 * Undo Tree
 
 In Emacs is very confusing to redo things, you have to undo the undo.
