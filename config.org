@@ -92,6 +92,20 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 (bind-key "<f11>" 'disable-active-themes)
 #+END_SRC
 
+* Mode Line
+
+Bugged in Emacs 24.5.1 on Elementary OS 0.3 Freya: the mode line gets
+all grey after moving the focus out of the Emacs window.
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package powerline
+  :ensure t
+  :init
+  (setq powerline-default-separator 'wave)
+  :config
+  (powerline-center-theme))
+#+END_SRC
+
 * Autocompletion
 
 #+BEGIN_SRC emacs-lisp
@@ -326,6 +340,7 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 (show-paren-mode t)
 
 ;; Show column number next to line number
+;; Not needed with powerline
 (column-number-mode t)
 
 ;; Soft-wrapping
