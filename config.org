@@ -245,14 +245,13 @@ org src buffer.
   :ensure t
   :diminish projectile-mode
   :commands projectile-mode
-  :config
-  (progn
-    (projectile-global-mode t)
-    (setq projectile-enable-caching t)
-    (setq projectile-completion-system 'helm)
-    (use-package helm-projectile
-      :ensure t
-      :config (helm-projectile-on))))
+  :init (progn
+          (projectile-global-mode t)
+          (setq projectile-enable-caching t)
+          (setq projectile-completion-system 'helm)
+          (use-package helm-projectile
+            :ensure t
+            :config (helm-projectile-on))))
 #+END_SRC
 
 * Font
