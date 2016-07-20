@@ -96,6 +96,7 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package company
+  :diminish company-mode
   :init
   (add-hook 'after-init-hook 'global-company-mode))
 #+END_SRC
@@ -355,6 +356,7 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 (winner-mode t)
 
 (use-package autopair
+  :diminish autopair-mode
   :config
   (autopair-global-mode))
 #+END_SRC
@@ -386,6 +388,7 @@ For that reason I like to use the *undo-tree* package.
 #+BEGIN_SRC emacs-lisp
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :config
   (global-undo-tree-mode))
 #+END_SRC
