@@ -390,3 +390,15 @@ Let Nyan Cat show the buffer position in mode line.
   :config
   (nyan-mode 1))
 #+END_SRC
+
+* Undo Tree
+
+In Emacs is very confusing to redo things, you have to undo the undo.
+For that reason I like to use the *undo-tree* package.
+
+#+BEGIN_SRC emacs-lisp
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode))
+#+END_SRC
