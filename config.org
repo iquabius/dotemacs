@@ -166,7 +166,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
   :ensure t
   :bind
   (("C->" . mc/mark-next-like-this)
-   ("C->" . mc/mark-previous-like-this)
+   ("C-<" . mc/mark-previous-like-this)
    ("C-M->" . mc/unmark-next-like-this)
    ("C-M-<" . mc/unmark-previous-like-this)
    ("C-*" . mc/mark-all-like-this)
