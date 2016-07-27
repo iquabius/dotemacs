@@ -157,6 +157,29 @@ customize settings in [[file:init.el][init.el]].
            ("<tab>" . helm-execute-persistent-action)))
 #+END_SRC
 
+* LaTex
+
+#+BEGIN_SRC emacs-lisp
+(use-package tex-site
+  :ensure auctex
+  :config
+  (progn
+    (setq
+     reftex-plug-into-AUCTeX t
+     TeX-auto-save nil                  ; Do not use directory 'auto'
+     TeX-parse-self t                   ; Enable parse on load.
+     TeX-PDF-mode t
+     TeX-source-correlate-mode t        ; Enable Synctex
+     TeX-show-compilation t)            ; Show compilation buffer
+    (setq-default TeX-master nil)
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (LaTeX-math-mode)
+                (TeX-fold-mode 1)
+                (turn-on-reftex)
+                (visual-line-mode)))))
+#+END_SRC
+
 * Multiple Cursors
 
 Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
