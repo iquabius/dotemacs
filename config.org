@@ -8,7 +8,7 @@
       user-mail-address "iquabius@gmail.com")
 #+END_SRC
 
-* Theme
+* Appearance
 ** Cyberpunk theme
 
 The [[https://github.com/n3mo/cyberpunk-theme.el][cyberpunk theme]] is dark and colorful. However, I don't like the
@@ -90,6 +90,17 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 
 (bind-key "<f12>" 'switch-theme)
 (bind-key "<f11>" 'disable-active-themes)
+#+END_SRC
+
+** Indentation
+
+#+BEGIN_SRC emacs-lisp
+(use-package highlight-indent-guides
+  :ensure t
+  :init
+  (setq highlight-indent-guides-method 'fill)
+  :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 #+END_SRC
 
 * Mode Line
