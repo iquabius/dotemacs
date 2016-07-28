@@ -117,13 +117,36 @@ all grey after moving the focus out of the Emacs window.
   (powerline-center-theme))
 #+END_SRC
 
+* Custom Keys
+
+Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
+
+#+BEGIN_SRC emacs-lisp
+(bind-keys ("M-i" . previous-line)
+           ("M-j" . backward-char)
+           ("M-k" . next-line)
+           ("M-l" . forward-char)
+           ("M-o" . forward-word)
+           ("M-u" . backward-word)
+           ("M-S-o" . forward-paragraph)
+           ("M-S-u" . backward-paragraph))
+
+(bind-keys ("s-b" . browse-url-at-point))
+#+END_SRC
+
 * Autocompletion
 
 #+BEGIN_SRC emacs-lisp
 (use-package company
   :diminish company-mode
   :init
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  ;; Ergonomic navigation
+  (unbind-key "M-p" company-active-map)
+  (unbind-key "M-n" company-active-map)
+  (bind-key "M-i" 'company-select-previous company-active-map)
+  (bind-key "M-k" 'company-select-next company-active-map))
 #+END_SRC
 
 * Customize settings
@@ -152,10 +175,20 @@ customize settings in [[file:init.el][init.el]].
               :config
               (setq helm-swoop-split-direction 'split-window-horizontally)
               (setq helm-swoop-use-fuzzy-match t)
-              :bind (("M-i" . helm-swoop)
-                     ("M-I" . helm-swoop-back-to-last-point)
+              ;; "M-i" is used in ergonomic key bindings to move to previous line
+              (unbind-key "M-i" helm-swoop-map)
+              :bind (("s-i" . helm-swoop)
+                     ("s-I" . helm-swoop-back-to-last-point)
+                     :map helm-swoop-map
+                     ("s-i" . helm-multi-swoop-all-from-helm-swoop)
                      :map isearch-mode-map
-                     ("M-i" . helm-swoop-from-isearch))))
+                     ("s-i" . helm-swoop-from-isearch))))
+    :config
+    ;; "M-i" is used in ergonomic key bindings to move to previous line
+    (unbind-key "M-i" helm-find-files-map)
+    (unbind-key "M-i" helm-generic-files-map)
+    (bind-key "s-i" 'helm-ff-properties-persistent helm-find-files-map)
+    (bind-key "s-i" 'helm-ff-properties-persistent helm-generic-files-map)
     :bind (("C-c h" . helm-command-prefix)
            ("C-x b" . helm-mini)
            ("C-x C-b" . ibuffer)
@@ -165,7 +198,9 @@ customize settings in [[file:init.el][init.el]].
            ("C-c M-x" . execute-extended-command)                  ;; old M-x
            ("M-y" . helm-show-kill-ring)
            :map helm-map
-           ("<tab>" . helm-execute-persistent-action)))
+           ("<tab>" . helm-execute-persistent-action)
+           ("M-i" . helm-previous-line)
+           ("M-k" . helm-next-line)))
 #+END_SRC
 
 * LaTex
