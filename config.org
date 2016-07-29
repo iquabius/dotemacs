@@ -46,6 +46,16 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
   :ensure t)
 #+END_SRC
 
+** Spacegray theme
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package spacegray-theme
+  :if (window-system)
+  :ensure t
+  :config
+  (load-theme 'spacegray))
+#+END_SRC
+
 ** Monokai theme
 
 #+BEGIN_SRC emacs-lisp :tangle no
