@@ -223,7 +223,10 @@ customize settings in [[file:init.el][init.el]].
                 (LaTeX-math-mode)
                 (TeX-fold-mode 1)
                 (turn-on-reftex)
-                (visual-line-mode)))))
+                (visual-line-mode)
+                (setq
+                 TeX-clean-confirm nil)))))
+#+END_SRC
 #+END_SRC
 
 * Languages
