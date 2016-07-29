@@ -227,6 +227,16 @@ customize settings in [[file:init.el][init.el]].
                 (setq
                  TeX-clean-confirm nil)))))
 #+END_SRC
+
+Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][auctex-latexmk]] package.
+
+#+BEGIN_SRC emacs-lisp
+(use-package auctex-latexmk
+  :ensure t
+  :config
+  (progn
+    (require 'auctex-latexmk)
+    (auctex-latexmk-setup)))
 #+END_SRC
 
 * Languages
