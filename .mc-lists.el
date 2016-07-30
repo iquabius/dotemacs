@@ -3,7 +3,13 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        autopair-insert-opening
+        kill-visual-line
+        org-cycle
+        org-end-of-line
+        org-metaright
         org-self-insert-command
+        org-yank
         ))
 
 (setq mc/cmds-to-run-once
