@@ -171,6 +171,15 @@ Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
   (bind-key "M-k" 'company-select-next company-active-map))
 #+END_SRC
 
+Display documentation in a popup with [[https://www.github.com/expez/company-quickhelp][company-quickhelp]].
+
+#+BEGIN_SRC emacs-lisp
+(use-package company-quickhelp
+  :ensure t
+  :config
+  (company-quickhelp-mode 1))
+#+END_SRC
+
 * Customize settings
 
 Set up the customize file to its own separate file, instead of saving
