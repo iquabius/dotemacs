@@ -474,6 +474,9 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;; Auto refresh files when changed from disk
 (global-auto-revert-mode t)
 
+;; Always strip trailing whitespaces from the file
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; -i gets alias definitions from .bash_profile
 ;; Looks like it's causing these bugs (noticed in projectile file listings):
 ;;   - bash: cannot set terminal process group (-1): Inappropriate ioctl for device
