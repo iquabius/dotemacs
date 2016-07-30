@@ -113,6 +113,18 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 #+END_SRC
 
+** Colored Variables
+
+Color each variable, and downplay standard key words.
+
+#+BEGIN_SRC emacs-lisp
+(use-package color-identifiers-mode
+  :ensure t
+  :diminish color-identifiers-mode
+  :init
+  (add-hook 'after-init-hook 'global-color-identifiers-mode))
+#+END_SRC
+
 * Mode Line
 
 Bugged in Emacs 24.5.1 on Elementary OS 0.3 Freya: the mode line gets
