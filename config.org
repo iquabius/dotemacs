@@ -535,3 +535,22 @@ For that reason I like to use the *undo-tree* package.
   :config
   (global-undo-tree-mode))
 #+END_SRC
+
+* Whiteface
+
+From Howard Abrams's [[https://github.com/howardabrams/dot-files/blob/master/emacs.org][Emacs Configuration File]].
+
+#+BEGIN_SRC emacs-lisp
+(use-package whitespace
+  :diminish whitespace-mode
+  :bind ("C-c w" . whitespace-mode)
+  :init
+  (setq whitespace-line-column nil
+        whitespace-display-mappings '((space-mark 32 [183] [46])
+                                      (newline-mark 10 [8617 10])
+                                      (tab-mark 9 [9654 9] [92 9])))
+  :config
+  (set-face-attribute 'whitespace-space       nil :foreground "#666666" :background nil)
+  (set-face-attribute 'whitespace-newline     nil :foreground "#666666" :background nil)
+  (set-face-attribute 'whitespace-indentation nil :foreground "#666666" :background nil))
+#+END_SRC
