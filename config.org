@@ -418,6 +418,13 @@ as inserted, modified or deleted.
            ("C-x v r" . git-gutter:revert-hunk)))
 #+END_SRC
 
+Special mode for Git's configuration file.
+
+#+BEGIN_SRC emacs-lisp
+(use-package gitconfig-mode
+  :ensure t)
+#+END_SRC
+
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
