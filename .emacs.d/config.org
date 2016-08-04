@@ -76,6 +76,15 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
   (load-theme 'waher))
 #+END_SRC
 
+** Emacs on Terminal
+
+Set a theme which looks good in a text-only terminal.
+
+#+BEGIN_SRC emacs-lisp
+(if (not (display-graphic-p))           ; if on text-only terminal
+    (load-theme 'tsdh-dark t))
+#+END_SRC
+
 ** Convenient theme functions
 
 Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]].
