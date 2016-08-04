@@ -519,10 +519,8 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;; 2: vertically
 (setq split-width-threshold 1)
 
-(use-package autopair
-  :diminish autopair-mode
-  :config
-  (autopair-global-mode))
+;; Automatically close parentheses, square brackets, double quotes...
+(electric-pair-mode 1)
 #+END_SRC
 
 The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
