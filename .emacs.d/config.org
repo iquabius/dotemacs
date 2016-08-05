@@ -117,7 +117,7 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 (use-package highlight-indent-guides
   :ensure t
   :init
-  (setq highlight-indent-guides-method 'fill)
+  (setq highlight-indent-guides-method 'character)
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 #+END_SRC
