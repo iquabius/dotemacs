@@ -563,19 +563,33 @@ For that reason I like to use the *undo-tree* package.
 
 * Whiteface
 
-From Howard Abrams's [[https://github.com/howardabrams/dot-files/blob/master/emacs.org][Emacs Configuration File]].
-
 #+BEGIN_SRC emacs-lisp
 (use-package whitespace
   :diminish whitespace-mode
   :bind ("C-c w" . whitespace-mode)
   :init
-  (setq whitespace-line-column nil
-        whitespace-display-mappings '((space-mark 32 [183] [46])
-                                      (newline-mark 10 [8617 10])
-                                      (tab-mark 9 [9654 9] [92 9])))
+  (setq whitespace-display-mappings
+        '((space-mark   ?\     [?\u00B7]     [?.])      ; space
+          (space-mark   ?\xA0  [?\u00A4]     [?_])      ; hard space
+          (newline-mark ?\n    [?¬ ?\n])                ; end-of-line
+          (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t]) ; tab
+          )
+        whitespace-style '(face
+                           lines-tail
+                           newline
+                           newline-mark
+                           spaces
+                           space-mark
+                           tabs
+                           tab-mark
+                           trailing)
+        whitespace-line-column 80)
   :config
-  (set-face-attribute 'whitespace-space       nil :foreground "#666666" :background nil)
-  (set-face-attribute 'whitespace-newline     nil :foreground "#666666" :background nil)
-  (set-face-attribute 'whitespace-indentation nil :foreground "#666666" :background nil))
+  ;; TODO: must reset these after using the ~switch-theme~ function.
+  (set-face-background 'whitespace-space   nil)
+  (set-face-background 'whitespace-hspace  nil)
+  (set-face-background 'whitespace-newline nil)
+  (set-face-background 'whitespace-tab     nil))
 #+END_SRC
+
+Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
