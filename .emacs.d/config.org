@@ -303,6 +303,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
    ("C-M->" . mc/unmark-next-like-this)
    ("C-M-<" . mc/unmark-previous-like-this)
    ("C-*" . mc/mark-all-like-this)
+   ("C-8" . mc/mark-all-words-like-this)
    ("C-S-<SPC>" . set-rectangular-region-anchor))
   :init
   (bind-keys :prefix-map mc-map
