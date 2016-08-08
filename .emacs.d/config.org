@@ -532,11 +532,6 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;; Take emacs into fullscreen mode
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
-;; Highlights current line
-(global-hl-line-mode)
-;; Keep syntax highlighting in the current line
-(set-face-foreground 'highlight nil)
-
 ;; Allows you to “undo” (and “redo”) changes in the window configuration
 ;; ‘C-c left’ and ‘C-c right’
 (winner-mode t)
@@ -567,6 +562,37 @@ at point as the default value for occur.
   (call-interactively 'occur))
 
 (bind-key "M-s o" 'occur-dwim)
+#+END_SRC
+
+* Scrolling
+
+** Cursor Guiding
+
+Highlight current line, and keep syntax highlighting.
+
+#+BEGIN_SRC emacs-lisp
+(global-hl-line-mode -1)
+
+(set-face-foreground 'highlight nil)
+#+END_SRC
+
+If your theme's line highlighting is to intrusive (like /tango-dark/),
+use 'on-screen' and/or 'beacon' to "guide your eyes while scrolling".
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package on-screen
+  :ensure t
+  :config
+  (on-screen-global-mode +1))
+#+END_SRC
+
+"A light that follows your cursor around so you don't lose it!"
+
+#+BEGIN_SRC emacs-lisp
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
 #+END_SRC
 
 * Undo Tree
