@@ -159,8 +159,8 @@ Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
            ("M-l" . forward-char)
            ("M-o" . forward-word)
            ("M-u" . backward-word)
-           ("M-S-o" . forward-paragraph)
-           ("M-S-u" . backward-paragraph))
+           ("C-M-o" . forward-paragraph)
+           ("C-M-u" . backward-paragraph))
 
 (bind-keys ("s-b" . browse-url-at-point))
 #+END_SRC
