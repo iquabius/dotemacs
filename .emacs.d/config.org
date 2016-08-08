@@ -283,6 +283,18 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
 #+END_SRC
 
 * Languages
+** JavaScript
+
+#+BEGIN_SRC emacs-lisp
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :interpreter "node"
+  :config (setq-default
+           js2-electric-keys nil)
+  (unbind-key "M-j" js2-mode-map))
+#+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
