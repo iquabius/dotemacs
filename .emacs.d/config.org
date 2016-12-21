@@ -292,7 +292,8 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
   :interpreter "node"
   :config (setq-default
            js2-electric-keys nil)
-  (unbind-key "M-j" js2-mode-map))
+  (unbind-key "M-j" js2-mode-map)
+  (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2))))
 #+END_SRC
 
 ** Fish Shell
