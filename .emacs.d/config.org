@@ -312,6 +312,15 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
                 ))
 #+END_SRC
 
+Major mode for React JSX files:
+
+#+BEGIN_SRC emacs-lisp
+(use-package rjsx-mode
+  :ensure t
+  :after js2-mode
+  :mode (("\\.jsx\\'" . rjsx-mode)))
+#+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
