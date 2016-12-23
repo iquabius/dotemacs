@@ -202,6 +202,16 @@ customize settings in [[file:init.el][init.el]].
 (load custom-file)
 #+END_SRC
 
+* Flycheck
+
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :ensure t
+  :defer 1
+  :config
+  (global-flycheck-mode))
+#+END_SRC
+
 * Helm
 
 #+BEGIN_SRC emacs-lisp
@@ -288,12 +298,18 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
 #+BEGIN_SRC emacs-lisp
 (use-package js2-mode
   :ensure t
+  :defer t
   :mode "\\.js\\'"
   :interpreter "node"
-  :config (setq-default
-           js2-electric-keys nil)
+  :config
   (unbind-key "M-j" js2-mode-map)
-  (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2))))
+  (setq-default js2-electric-keys nil
+                ;; Disable parse errors and strict warning. Flycheck FTW ;)
+                js2-mode-show-parse-errors nil
+                js2-mode-show-strict-warnings nil
+                js2-highlight-level 3  ; Try to highlight most ECMA built-ins
+                js2-basic-offset 2
+                ))
 #+END_SRC
 
 ** Fish Shell
