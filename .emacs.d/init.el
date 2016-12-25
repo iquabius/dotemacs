@@ -10,6 +10,7 @@
 
 ;;; Set up package
 (require 'package)
+(setq package-enable-at-startup nil)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -20,12 +21,11 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(setq use-package-always-ensure t)
 
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
-;(require 'bind-key)
+(require 'bind-key)
 ;(setq use-package-verbose t)
 
 ;;; Load the config
