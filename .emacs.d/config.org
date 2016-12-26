@@ -690,3 +690,14 @@ popup.
 #+END_SRC
 
 Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
+
+* Windows
+
+[[https://github.com/abo-abo/ace-window][=ace-window=]] is a package for selecting a window to switch to.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ace-window
+  :ensure t
+  ; could use M-p for this
+  :bind (([remap other-window] . ace-window)))
+#+END_SRC
