@@ -173,7 +173,18 @@ Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
 (bind-keys ("s-b" . browse-url-at-point))
 #+END_SRC
 
-* Autocompletion
+* Autocompletion & Templating
+
+"[[https://github.com/joaotavora/yasnippet][YASnippet]] is a template system for Emacs. It allows you to type an
+abbreviation and automatically expand it into function templates."
+
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :defer t
+  :diminish (yas-minor-mode . " Ⓨ")
+  :init (yas-global-mode))
+#+END_SRC
 
 "[[http://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for
 "complete anything". It uses pluggable back-ends and front-ends to
