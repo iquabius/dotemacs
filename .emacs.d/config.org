@@ -8,6 +8,15 @@
       user-mail-address "iquabius@gmail.com")
 #+END_SRC
 
+* Packages to Take a Look
+
+- [ ] Hydra
+- [ ] [[https://github.com/proofit404/anaconda-mode][Anaconda mode]]
+- [ ] [[http://cestlaz.github.io/posts/using-emacs-13-yasnippet/][Elpy mode]]
+- [ ] [[https://github.com/syohex/emacs-company-jedi/wiki][Company-jedi]]
+- [ ] [[https://github.com/TheBB/spaceline][Spaceline]]
+- [ ] [[http://cestlaz.github.io/posts/using-emacs-11-reveal/][Presentations with Org-mode and Reveal.js]]
+
 * Appearance
 ** Cyberpunk theme
 
