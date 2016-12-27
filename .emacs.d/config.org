@@ -452,7 +452,7 @@ Here's how we tell Emacs to use the font we want to use.
 
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'default-frame-alist
-             '(font . "Source Code Pro-13"))
+             '(font . "Source Code Pro-14:weight=semibold"))
 #+END_SRC
 
 * Git Integration
