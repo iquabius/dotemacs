@@ -647,6 +647,11 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 
 ;; Automatically close parentheses, square brackets, double quotes...
 (electric-pair-mode 1)
+
+;; Increase fill column (default is 70) and enable automatic filling
+(setq-default fill-column 80)
+(add-hook 'text-mode-hook #'auto-fill-mode)
+(diminish 'auto-fill-function " Ⓕ")
 #+END_SRC
 
 The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
