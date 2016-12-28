@@ -357,6 +357,32 @@ Major mode for React JSX files:
   :mode (("\\.jsx\\'" . rjsx-mode)))
 #+END_SRC
 
+Use [[https://github.com/ternjs/tern][Tern]] IDE for intelligent JavaScript editing.
+
+The 'tern' npm package must be installed globally:
+
+#+BEGIN_SRC fish
+npm install -g tern
+#+END_SRC
+
+Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript autocompletion.
+
+#+BEGIN_SRC emacs-lisp
+(use-package tern
+  :ensure t
+  :defer t
+;  :diminish tern-mode
+  :init
+  (add-hook 'js2-mode-hook 'tern-mode)
+  (use-package company-tern
+    :ensure t
+    :after company
+    :init (add-to-list 'company-backends 'company-tern))
+  :config
+  ;; Don't generate port files
+  (add-to-list 'tern-command "--no-port-file" 'append))
+#+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
