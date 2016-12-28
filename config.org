@@ -212,6 +212,15 @@ retrieve and display completion candidates."
   (bind-key "M-k" 'company-select-next company-active-map))
 #+END_SRC
 
+"Sort completion candidates by previous completion choices".
+
+#+BEGIN_SRC emacs-lisp
+(use-package company-statistics
+  :ensure t
+  :after company
+  :config (company-statistics-mode))
+#+END_SRC
+
 Display documentation in a popup with [[https://www.github.com/expez/company-quickhelp][company-quickhelp]].
 
 #+BEGIN_SRC emacs-lisp
