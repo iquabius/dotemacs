@@ -1,7 +1,15 @@
+# Recovery and backup directories
 /auto-save-list/
 /backups/
+
+# Generated from config.org
 /config.el
+
+# Installed packages
 /elpa/
+
+# Cache files and settings for packages
+/company-statistics-cache.el
 /eshell/
 /projectile-bookmarks.eld
 /projectile.cache
