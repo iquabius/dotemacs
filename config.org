@@ -195,9 +195,9 @@ abbreviation and automatically expand it into function templates."
   :init (yas-global-mode))
 #+END_SRC
 
-"[[http://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for
-"complete anything". It uses pluggable back-ends and front-ends to
-retrieve and display completion candidates."
+“[[http://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for
+‘complete anything’. It uses pluggable back-ends and front-ends to
+retrieve and display completion candidates.”
 
 #+BEGIN_SRC emacs-lisp
 (use-package company
@@ -736,6 +736,20 @@ popup.
   :diminish which-key-mode
   :config
   (which-key-mode))
+#+END_SRC
+
+Automatically use typographic quotes and dashes.
+
+#+BEGIN_SRC emacs-lisp
+(use-package typo
+  :ensure t
+  :diminish (typo-mode . " Ⓣ")
+  :bind (("C-c t t" . typo-mode)
+         ("C-c l L" . typo-change-language))
+  :init
+  (add-hook 'text-mode-hook #'typo-mode)
+  :config
+  (setq-default typo-language "English"))
 #+END_SRC
 
 * Whiteface
