@@ -723,6 +723,15 @@ Automatically use typographic quotes and dashes.
   (setq-default typo-language "English"))
 #+END_SRC
 
+Deletes all the whitespace when you hit backspace or delete
+
+#+BEGIN_SRC emacs-lisp
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+#+END_SRC
+
 * Whiteface
 
 #+BEGIN_SRC emacs-lisp
