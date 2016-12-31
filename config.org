@@ -732,6 +732,14 @@ Deletes all the whitespace when you hit backspace or delete
   (global-hungry-delete-mode))
 #+END_SRC
 
+Expand region by semantic units (negative prefix to reduce region)
+
+#+BEGIN_SRC emacs-lisp
+(use-package expand-region
+  :ensure t
+  :bind (("C-c v" . er/expand-region)))
+#+END_SRC
+
 * Whiteface
 
 #+BEGIN_SRC emacs-lisp
