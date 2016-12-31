@@ -165,23 +165,6 @@ all grey after moving the focus out of the Emacs window.
   (powerline-center-theme))
 #+END_SRC
 
-* Custom Keys
-
-Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
-
-#+BEGIN_SRC emacs-lisp
-(bind-keys ("M-i" . previous-line)
-           ("M-j" . backward-char)
-           ("M-k" . next-line)
-           ("M-l" . forward-char)
-           ("M-o" . forward-word)
-           ("M-u" . backward-word)
-           ("C-M-o" . forward-paragraph)
-           ("C-M-u" . backward-paragraph))
-
-(bind-keys ("s-b" . browse-url-at-point))
-#+END_SRC
-
 * Autocompletion & Templating
 
 "[[https://github.com/joaotavora/yasnippet][YASnippet]] is a template system for Emacs. It allows you to type an
@@ -726,18 +709,6 @@ For that reason I like to use the *undo-tree* package.
 	:ensure t)
 #+END_SRC
 
-[[https://github.com/justbur/emacs-which-key][=which-key=]] is a minor mode for Emacs that displays the key bindings
-following your currently entered incomplete command (a prefix) in a
-popup.
-
-#+BEGIN_SRC emacs-lisp
-(use-package which-key
-  :ensure t
-  :diminish which-key-mode
-  :config
-  (which-key-mode))
-#+END_SRC
-
 Automatically use typographic quotes and dashes.
 
 #+BEGIN_SRC emacs-lisp
@@ -794,4 +765,33 @@ Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
   :ensure t
   ; could use M-p for this
   :bind (([remap other-window] . ace-window)))
+#+END_SRC
+* Keys & Key Bindings
+
+Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
+
+#+BEGIN_SRC emacs-lisp
+(bind-keys ("M-i" . previous-line)
+           ("M-j" . backward-char)
+           ("M-k" . next-line)
+           ("M-l" . forward-char)
+           ("M-o" . forward-word)
+           ("M-u" . backward-word)
+           ("C-M-o" . forward-paragraph)
+           ("C-M-u" . backward-paragraph))
+
+(bind-keys ("s-b" . browse-url-at-point))
+#+END_SRC
+
+[[https://github.com/justbur/emacs-which-key][=which-key=]] is a minor mode for Emacs that displays the key bindings
+following your currently entered incomplete command (a prefix) in a
+popup.
+
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure t
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.4)
+  (which-key-mode))
 #+END_SRC
