@@ -667,6 +667,13 @@ at point as the default value for occur.
 
 * Scrolling
 
+#+BEGIN_SRC emacs-lisp
+(use-package smooth-scrolling
+  :ensure t
+  :init (setq smooth-scroll-margin 5)
+  :config (smooth-scrolling-mode t))
+#+END_SRC
+
 ** Cursor Guiding
 
 Highlight current line, and keep syntax highlighting.
