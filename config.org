@@ -610,6 +610,7 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 
 ;; Auto refresh files when changed from disk
 (global-auto-revert-mode t)
+;(setq auto-revert-verbose nil)
 
 ;; “Save clipboard strings into kill ring before replacing them.”
 (setq save-interprogram-paste-before-kill t)
