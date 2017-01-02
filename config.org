@@ -352,6 +352,18 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
   :config (setq css-indent-offset 2))
 #+END_SRC
 
+“~[[https://julien.danjou.info/projects/emacs-packages][rainbow-mode]]~ is a minor mode for Emacs which displays strings representing
+colors with the color they represent as background.”
+
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+  :ensure t
+  :after ccs-mode
+  :init
+  (dolist (hook '(css-mode-hook web-mode-hook))
+    (add-hook hook 'rainbow-mode)))
+#+END_SRC
+
 ** JavaScript
 
 #+BEGIN_SRC emacs-lisp
