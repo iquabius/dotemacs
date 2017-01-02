@@ -611,6 +611,9 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;; Auto refresh files when changed from disk
 (global-auto-revert-mode t)
 
+;; “Save clipboard strings into kill ring before replacing them.”
+(setq save-interprogram-paste-before-kill t)
+
 ;; Always strip trailing whitespaces from the file
 ;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
