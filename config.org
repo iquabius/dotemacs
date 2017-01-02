@@ -154,6 +154,8 @@ Color each variable, and downplay standard key words.
 
 #+BEGIN_SRC emacs-lisp
 (use-package color-identifiers-mode
+  :disabled t                           ; Too slow as of v1.0.0, and comments
+                                        ; are also initially colorized
   :ensure t
   :diminish color-identifiers-mode
   :init
