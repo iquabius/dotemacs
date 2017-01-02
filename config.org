@@ -43,6 +43,15 @@ a multi-step process with ~disable-theme~ and ~load-theme~. The
 ~switch-theme~ function will do that in one swoop. I just choose which
 theme I want to go to.
 
+** Dracula theme
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package dracula-theme
+  :if (window-system)
+  :ensure t
+  :config (load-theme 'dracula t))
+#+END_SRC
+
 ** Solarized theme
 
 Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bbatsov's solarized themes]].
