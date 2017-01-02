@@ -332,6 +332,26 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
 #+END_SRC
 
 * Languages
+** The Web
+
+*** HTML
+
+#+BEGIN_SRC emacs-lisp
+(use-package web-mode
+  :ensure t
+  :defer t
+  :mode "\\.html\\'"
+  :config (setq web-mode-enable-current-element-highlight t))
+#+END_SRC
+
+*** CSS
+
+#+BEGIN_SRC emacs-lisp
+(use-package css-mode
+  :defer t
+  :config (setq css-indent-offset 2))
+#+END_SRC
+
 ** JavaScript
 
 #+BEGIN_SRC emacs-lisp
