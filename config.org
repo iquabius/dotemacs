@@ -141,6 +141,7 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package highlight-indent-guides
+  :disabled t
   :ensure t
   :init
   (setq highlight-indent-guides-method 'character)
