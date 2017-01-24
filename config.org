@@ -589,6 +589,36 @@ Special mode for Git's configuration file.
   :ensure t)
 #+END_SRC
 
+* Writing & Research
+
+** Referencing Zotero items from within Org mode
+
+   A good way for referencing [[https://www.zotero.org/][Zotero]] items from within Org mode is by using the
+   *[[https://github.com/egh/zotxt-emacs][zotxt-emacs]]* package, which depends on the *[[https://gitlab.com/egh/zotxt][zotxt]]* Zotero extension.
+
+   *[[http://www.mkbehr.com/files/mkbehr-short.csl][mkbeh-short]]* is a short citation template created by Michael Behr. It can be
+   downloaded from /[[http://www.mkbehr.com/posts/a-research-workflow-with-zotero-and-org-mode/][A research workflow with Zotero and Org mode]]/. To install:
+   /Zotero -> Edit -> Preferences -> Cite -> Styles -> +/.
+
+   #+BEGIN_SRC emacs-lisp
+   (defun org-zotxt-insert-current-item ()
+     "Insert reference link for currently selected item from Zotero"
+     (interactive)
+     (org-zotxt-insert-reference-link '(4)))
+
+   (use-package zotxt
+     :ensure t
+     :defer t
+     :bind (:map org-mode-map
+            ;; Bind something to replace the awkward C-u C-c " i
+            ("C-c \" \"" . org-zotxt-insert-current-item))
+     :init
+     (add-hook 'org-mode-hook #'org-zotxt-mode)
+     :config
+     ;; Change citation format to be less cumbersome in files.
+     '(setq zotxt-default-bibliography-style "mkbehr-short"))
+   #+END_SRC
+
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
