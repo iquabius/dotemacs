@@ -341,6 +341,17 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
      (add-hook 'LaTeX-mode-hook 'company-auctex-init))
    #+END_SRC
 
+** Editing .bib files with bibtex-mode
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package bibtex
+     :mode ("\\.bib" . bibtex-mode)
+     :init
+     (progn
+       (setq bibtex-align-at-equal-sign t)
+       (add-hook 'bibtex-mode-hook (lambda () (set-fill-column 120)))))
+   #+END_SRC
+
 * Languages
 ** The Web
 
