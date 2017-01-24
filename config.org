@@ -639,6 +639,28 @@ Special mode for Git's configuration file.
      '(setq zotxt-default-bibliography-style "mkbehr-short"))
    #+END_SRC
 
+** Zotelo for syncing .bib files with Zotero collections
+
+   [[https://github.com/vspinu/zotelo][Zotelo]] depends on the [[https://addons.mozilla.org/en-US/firefox/addon/mozrepl/][MozRepl]] Firefox extension, which can be downloaded and
+   installed in Zotero Standalone as an add-on. After installing, it can be
+   [[https://forums.zotero.org/discussion/29885/mozrepl-in-zotero-standalone][configured to autostart]] with Zotero:
+
+   /Edit -> Preferences -> Advanced -> Open about:config -> Agree to be careful
+   -> Search for “extensions.mozrepl.autoStart” -> Toggle its value from false
+   to true by double-clicking./
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package zotelo
+     :ensure t
+     :commands (zotelo-set-collection
+                zotelo-update-database
+                zotelo-minor-mode)
+     :init
+     (add-hook 'TeX-mode-hook 'zotelo-minor-mode)
+     :config
+     (setq zotelo-use-ido nil))
+   #+END_SRC
+
 * Sane defaults
 
 Let's start with some sane defaults, shall we?
