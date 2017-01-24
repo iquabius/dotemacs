@@ -331,6 +331,16 @@ Integration with LaTeXmk with [[https://github.com/tom-tan/auctex-latexmk][aucte
     (auctex-latexmk-setup)))
 #+END_SRC
 
+** Autocompletion with company-auctex
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package company-auctex
+     :ensure t
+     :defer t
+     :init
+     (add-hook 'LaTeX-mode-hook 'company-auctex-init))
+   #+END_SRC
+
 * Languages
 ** The Web
 
