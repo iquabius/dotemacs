@@ -473,6 +473,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
              ("h" . mc-hide-unmatched-lines-mode)
              ("i" . mc/insert-numbers)
              ("l" . mc/edit-lines)
+             ("n" . mc/mark-next-like-this)
              ("r" . mc/reverse-regions)
              ("s" . mc/sort-regions)))
 #+END_SRC
