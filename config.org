@@ -614,6 +614,76 @@ Special mode for Git's configuration file.
 
 * Writing & Research
 
+** Spell Checking
+
+*** Aspell
+
+   Install spell checker utility and dictionary:
+
+   #+BEGIN_SRC fish
+   sudo apt-get install -y aspell aspell-en aspell-pt-br
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package ispell
+     :defer t
+     ;:init (add-to-list 'company-backends 'company-ispell)
+     :config
+     (setq
+      ispell-program-name "aspell"
+      ispell-dictionary "en_US"            ; Default dictionnary
+      ispell-silently-savep t              ; Don't ask when saving the private dict
+      ;; Increase the height of the choices window to take our header line into
+      ;; account.
+      ispell-choices-win-default-height 5)
+
+     (unless ispell-program-name
+       (warn "No spell checker available.  Install Hunspell or ASpell for GNU/Linux.")))
+   #+END_SRC
+
+
+*** Flyspell: On-the-fly spell checking
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package flyspell
+     :bind (("C-c t s" . flyspell-mode)
+            ("C-c l b" . flyspell-buffer))
+     :init
+     (dolist (hook '(text-mode-hook message-mode-hook))
+       (add-hook hook 'turn-on-flyspell))
+     (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+     :config
+     (setq
+      flyspell-use-meta-tab nil
+      ;; Make Flyspell less chatty
+      flyspell-issue-welcome-flag nil
+      flyspell-issue-message-flag nil)
+
+     ;; Free C-M-i for completion
+     (define-key flyspell-mode-map "\M-\t" nil)
+     ;; Undefine mouse buttons which get in the way
+     (define-key flyspell-mouse-map [down-mouse-2] nil)
+     (define-key flyspell-mouse-map [mouse-2] nil)
+     :diminish (flyspell-mode . " ⓢ"))
+   #+END_SRC
+
+
+*** Flyspell with Helm
+
+    Helm interface for Flyspell: [[https://github.com/d12frosted/flyspell-correct][flyspell-correct]].
+
+    #+BEGIN_SRC emacs-lisp
+    (use-package flyspell-correct
+      :ensure t
+      :bind (:map flyspell-mode-map
+             ("C-;" . flyspell-correct-word-generic)
+             ("C-:" . flyspell-correct-previous-word-generic))
+      :init (use-package flyspell-correct-helm
+              :ensure t
+              :config (setq flyspell-correct-interface 'flyspell-correct-helm)))
+    #+END_SRC
+
+
 ** Referencing Zotero items from within Org mode
 
    A good way for referencing [[https://www.zotero.org/][Zotero]] items from within Org mode is by using the
@@ -641,6 +711,7 @@ Special mode for Git's configuration file.
      ;; Change citation format to be less cumbersome in files.
      '(setq zotxt-default-bibliography-style "mkbehr-short"))
    #+END_SRC
+
 
 ** Zotelo for syncing .bib files with Zotero collections
 
