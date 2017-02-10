@@ -259,6 +259,7 @@ is part of GNU Emacs.
     :ensure t
     :diminish helm-mode
     :init (progn
+            (setq helm-ff-auto-update-initial-value t)
             (require 'helm-config)
             (use-package helm-ag :defer 10  :ensure t)
             (setq helm-M-x-fuzzy-match t)
