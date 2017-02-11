@@ -901,44 +901,52 @@ For that reason I like to use the *undo-tree* package.
 #+END_SRC
 
 * Utilities
+** Try
 
-[[https://github.com/larstvei/Try][Try]] allow us to try out packages without installing them.
+   [[https://github.com/larstvei/Try][Try]] allow us to try out packages without installing them.
 
-#+BEGIN_SRC emacs-lisp
-(use-package try
-	:ensure t)
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (use-package try
+   	:ensure t)
+   #+END_SRC
 
-Automatically use typographic quotes and dashes.
+** Typo-mode Ⓣ
 
-#+BEGIN_SRC emacs-lisp
-(use-package typo
-  :ensure t
-  :diminish (typo-mode . " Ⓣ")
-  :bind (("C-c t t" . typo-mode)
-         ("C-c l L" . typo-change-language))
-  :init
-  (add-hook 'text-mode-hook #'typo-mode)
-  :config
-  (setq-default typo-language "English"))
-#+END_SRC
+   Automatically use typographic quotes and dashes.
 
-Deletes all the whitespace when you hit backspace or delete
+   #+BEGIN_SRC emacs-lisp
+   (use-package typo
+     :ensure t
+     :diminish (typo-mode . " Ⓣ")
+     :bind (("C-c t t" . typo-mode)
+            ("C-c l L" . typo-change-language))
+     :init
+     (add-hook 'text-mode-hook #'typo-mode)
+     :config
+     (setq-default typo-language "English"))
+   #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-(use-package hungry-delete
-  :ensure t
-  :config
-  (global-hungry-delete-mode))
-#+END_SRC
+** Hungry Delete
 
-Expand region by semantic units (negative prefix to reduce region)
+   Deletes all the whitespace when you hit backspace or delete
 
-#+BEGIN_SRC emacs-lisp
-(use-package expand-region
-  :ensure t
-  :bind (("C-c v" . er/expand-region)))
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (use-package hungry-delete
+     :disabled t
+     :ensure t
+     :config
+     (global-hungry-delete-mode))
+   #+END_SRC
+
+** Expand Region
+
+   Expand region by semantic units (negative prefix to reduce region)
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package expand-region
+     :ensure t
+     :bind (("C-c v" . er/expand-region)))
+   #+END_SRC
 
 * Whiteface
 
