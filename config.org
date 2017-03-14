@@ -491,6 +491,24 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
                                     "~/Sync/review.org"))))
    #+END_SRC
 
+** Tasks
+
+*** Task States
+
+    #+BEGIN_SRC emacs-lisp
+    (setq org-todo-keywords '((sequence "NEXT(n)"
+                                        "TODO(t)" "|" "CANCELED(c@/!)" "DONE(d)")
+                              (sequence "WAITING(w@/!)" "|" "HOLD(h)"))
+
+          org-todo-keyword-faces
+          '(("TODO" . (:foreground "#859900" :weight bold)) ; Solarized green
+            ("NEXT" :foreground "#6c71c4" :weight bold)     ; Solarized violet
+            ("WAITING" :foreground "#cb4b16" :weight bold)   ; Solarized orange
+            ("HOLD" :foreground "#d33682" :weight bold)      ; Solarized magenta
+            ("CANCELED" :foreground "#586e75" :weight bold)
+            ("DONE" :foreground "#2aa198" :weight bold))) ; Solarized cyan
+    #+END_SRC
+
 ** Appearance
 
 I like to see an outline of pretty bullets instead of a list of asterisks.
