@@ -479,6 +479,18 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 #+END_SRC
 
 * Org-mode
+** Agenda
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package org
+     :defer t
+     :bind ("C-c a" . org-agenda)
+     :config
+     (setq org-agenda-files (quote ("~/Sync/inbox.org"
+                                    "~/Sync/projects.org"
+                                    "~/Sync/review.org"))))
+   #+END_SRC
+
 ** Appearance
 
 I like to see an outline of pretty bullets instead of a list of asterisks.
@@ -819,7 +831,7 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;; Default window splitting direction
 ;; 1: horizontally
 ;; 2: vertically
-(setq split-width-threshold 1)
+;; (setq split-width-threshold 1)
 
 ;; Automatically close parentheses, square brackets, double quotes...
 (electric-pair-mode 1)
