@@ -486,9 +486,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :defer t
      :bind ("C-c a" . org-agenda)
      :config
-     (setq org-agenda-files (quote ("~/Sync/inbox.org"
-                                    "~/Sync/projects.org"
-                                    "~/Sync/review.org"))))
+     (setq org-agenda-files (quote ("~/Me/inbox.org"
+                                    "~/Me/projects.org"
+                                    "~/Me/review.org"))))
    #+END_SRC
 
 ** Tasks
