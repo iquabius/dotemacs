@@ -500,6 +500,15 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
 ** Tasks
 
+*** Context Tags
+
+    #+BEGIN_SRC emacs-lisp
+    (setq org-tag-alist '(("@Home" . ?h)
+                          ("@Errands" . ?e)
+                          ("@Phone" . ?p)
+                          ("@Computer" . ?c)))
+    #+END_SRC
+
 *** Task States
 
     #+BEGIN_SRC emacs-lisp
