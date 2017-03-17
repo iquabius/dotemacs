@@ -512,8 +512,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 *** Task States
 
     #+BEGIN_SRC emacs-lisp
-    (setq org-todo-keywords '((sequence "NEXT(n)"
-                                        "TODO(t)" "|" "CANCELED(c@/!)" "DONE(d)")
+    (setq org-todo-keywords '((sequence "TODO(t)"
+                                        "NEXT(n)" "|" "DONE(d)" "CANCELED(c@/!)")
                               (sequence "WAITING(w@/!)" "|" "HOLD(h)"))
 
           org-todo-keyword-faces
