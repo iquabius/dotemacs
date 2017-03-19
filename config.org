@@ -492,8 +492,15 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 ** Note Taking
 
    #+BEGIN_SRC emacs-lisp
-   (setq org-directory "~/Me"
-         org-default-notes-file (concat org-directory "/main.org"))
+   (use-package org
+     :bind ("C-c c" . org-capture)
+     :init
+     (setq org-directory "~/Me"
+           org-default-notes-file (concat org-directory "/main.org"))
+     :config (setq org-capture-templates
+                   '(("t" "Todo list item" entry
+                      (file+headline org-default-notes-file "Inbox")
+                      "* TODO %^{Task}\n  %i%?\n  %a" :prepend t))))
    #+END_SRC
 
 ** Tasks
