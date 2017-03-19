@@ -855,6 +855,8 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 ;(to-add-list 'default-frame-alist '(fullscreen . maximized))
 ;; Take emacs into fullscreen mode
 (set-frame-parameter nil 'fullscreen 'fullboth)
+(if (daemonp)
+    (add-to-list 'default-frame-alist '(fullscreen . fullboth)))
 
 ;; Allows you to “undo” (and “redo”) changes in the window configuration
 ;; ‘C-c left’ and ‘C-c right’
