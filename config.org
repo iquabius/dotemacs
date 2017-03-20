@@ -547,7 +547,7 @@ Show a downward-pointing arrow instead of the usual ellipsis
 Here is some that could be used: ⤶, ⤷, ⤵, ↩, ⮰, ⮷, ↲, ↵, ↴, ⬎, ↷, ▼, ⋱
 
 #+BEGIN_SRC emacs-lisp
-(setq org-ellipsis "⮷")
+(setq org-ellipsis "…")
 #+END_SRC
 
 Use syntax highlighting in source blocks while editing.
