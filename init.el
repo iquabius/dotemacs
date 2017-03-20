@@ -7,11 +7,20 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
-;;; Set up package
+;;; Set up package archives
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+(setq package-archives
+      ;; Package archives
+      '(("GNU ELPA"     . "http://elpa.gnu.org/packages/")
+        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/"))
+      ;; Prefer MELPA Stable over GNU and MELPA. Fall back only if necessary.
+      package-archive-priorities
+      '(("MELPA Stable" . 10)
+        ("GNU ELPA"     . 5)
+        ("MELPA"        . 0)))
+
 (package-initialize)
 
 ;;; Bootstrap use-package
