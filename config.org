@@ -486,7 +486,11 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :defer t
      :bind ("C-c a" . org-agenda)
      :config
-     (setq org-agenda-files (quote ("~/Me/main.org"))))
+     (setq org-agenda-files (quote ("~/Org.d/main.org"))
+           ;; open agenda in current window
+           org-agenda-window-setup (quote current-window)
+           ;; Take advantage of screen real state
+           org-agenda-tags-column -100))
    #+END_SRC
 
 ** Note Taking
