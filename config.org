@@ -557,7 +557,11 @@ Here is some that could be used: ⤶, ⤷, ⤵, ↩, ⮰, ⮷, ↲, ↵, ↴, �
 Use syntax highlighting in source blocks while editing.
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-src-fontify-natively t)
+(setq org-src-fontify-natively t)
+;; TODO Save file on exiting
+(eval-after-load 'org-src
+    '(define-key org-src-mode-map
+       "\C-x\C-s" #'org-edit-src-exit))
 #+END_SRC
 
 Make TAB act as if it were issued in a buffer of the language's major mode.
