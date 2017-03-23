@@ -490,7 +490,12 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
            ;; open agenda in current window
            org-agenda-window-setup (quote current-window)
            ;; Take advantage of screen real state
-           org-agenda-tags-column -100))
+           org-agenda-tags-column -100
+
+           org-agenda-skip-scheduled-if-done t
+           org-agenda-skip-deadline-if-done t
+           ;; Don't warn about tasks' deadlines if they are scheduled
+           org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled))
    #+END_SRC
 
 ** Note Taking
