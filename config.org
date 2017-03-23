@@ -577,7 +577,8 @@ Don't add extra indentation after edinting a code snippet in the org
 src buffer.
 
 #+BEGIN_SRC emacs-lisp
-(setq org-src-preserve-indentation t)
+(setq org-src-preserve-indentation nil)
+(setq org-edit-src-content-indentation 0)
 #+END_SRC
 
 Remove trailing lines from the source block after editing it in the
