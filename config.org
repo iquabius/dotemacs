@@ -614,15 +614,12 @@ org src buffer.
 #+END_SRC
 
 * Font
+  Here's how we tell Emacs to use the font we want:
 
-[[http://adobe-fonts.github.io/source-code-pro/][Source Code Pro]] is a nice monospaced font.
-
-Here's how we tell Emacs to use the font we want to use.
-
-#+BEGIN_SRC emacs-lisp
-(add-to-list 'default-frame-alist
-             '(font . "Hack-14.5"))
-#+END_SRC
+  #+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist
+               '(font . "Monoid-12"))
+  #+END_SRC
 
 * Git Integration
 
