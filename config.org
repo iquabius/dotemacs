@@ -630,7 +630,8 @@ Integration between Magit and [[https://github.com/RichiH/vcsh][vcsh]]. See the 
 https://github.com/vanicat/magit-vcsh.
 
 #+BEGIN_SRC emacs-lisp
-(load-file "~/code/elisp/magit-vcsh/magit-vcsh.el")
+;; TODO move it to "~/.emacs.d/"
+(load-file "~/Code/elisp/magit-vcsh/magit-vcsh.el")
 #+END_SRC
 
 Git-gutter shows a sign in the gutter area indicating whether a line
