@@ -541,14 +541,18 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
 ** Appearance
 
-I like to see an outline of pretty bullets instead of a list of asterisks.
+   I like to see an outline of pretty bullets instead of a list of asterisks.
 
-#+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook #'org-bullets-mode))
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle no
+   (use-package org-bullets
+     :ensure t
+     :config
+     (add-hook 'org-mode-hook #'org-bullets-mode))
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp
+   (setq org-hide-leading-stars t)
+   #+END_SRC
 
 Show a downward-pointing arrow instead of the usual ellipsis
 (=...=) that org displays when there's stuff under a header.
