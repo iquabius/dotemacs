@@ -951,9 +951,11 @@ use 'on-screen' and/or 'beacon' to "guide your eyes while scrolling".
 
 "A light that follows your cursor around so you don't lose it!"
 
+Ⓑ ⓑ ⒝ ḇ Ḇ ḅ Ḅ ɓ Ƀ ƅ Ƅ ƃ Ƃ Ɓ ß ƀ
 #+BEGIN_SRC emacs-lisp
 (use-package beacon
   :ensure t
+  :diminish (beacon-mode . " ⓑ")
   :config
   (beacon-mode 1))
 #+END_SRC
