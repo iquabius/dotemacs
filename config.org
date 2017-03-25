@@ -489,8 +489,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      (setq org-agenda-files (quote ("~/Org.d/main.org"))
            ;; open agenda in current window
            org-agenda-window-setup (quote current-window)
-           ;; Take advantage of screen real state
-           org-agenda-tags-column -100
+
+           ;; Take advantage of screen real state. Font face and size also affect
+           ;; the position that tags are show in the screen.
+           org-agenda-tags-column -110
 
            org-agenda-skip-scheduled-if-done t
            org-agenda-skip-deadline-if-done t
