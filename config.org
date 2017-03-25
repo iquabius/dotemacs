@@ -228,6 +228,14 @@ Display documentation in a popup with [[https://www.github.com/expez/company-qui
   (bind-key "M-h" 'company-quickhelp-manual-begin company-active-map))
 #+END_SRC
 
+** Autocompletion for emoji: :watch: -> ⌚️
+   #+BEGIN_SRC emacs-lisp
+   (use-package company-emoji
+     :ensure t
+     :after company
+     :init (add-to-list 'company-backends 'company-emoji))
+   #+END_SRC
+
 * Customize settings
 
 Set up the customize file to its own separate file, instead of saving
