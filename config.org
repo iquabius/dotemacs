@@ -519,7 +519,17 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :config (setq org-capture-templates
                    '(("t" "Todo list item" entry
                       (file+headline org-default-notes-file "Inbox")
-                      "* TODO %^{Task}\n  %i%?\n  %a" :prepend t))))
+                      "* TODO %^{Task}\n  %i%?\n  %a\n" :prepend t)
+
+                     ("j" "Journal entry" plain
+                      (file+datetree (concat org-directory "/journal.org"))
+                      "     %<%H:%M> %?\n     %i\n     %a\n\n"
+                      :unnarrowed t)
+
+                     ("J" "Journal entry with date" plain
+                      (file+datetree+prompt (concat org-directory "/journal.org"))
+                      "     %<%H:%M> %?\n     %i\n     %a\n\n"
+                      :unnarrowed t))))
    #+END_SRC
 
 ** Tasks
