@@ -516,21 +516,25 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :init
      (setq org-directory "~/Org.d"
            org-default-notes-file (concat org-directory "/main.org"))
-     :config (setq org-log-into-drawer t
-                   org-capture-templates
-                   '(("t" "Todo list item" entry
-                      (file+headline org-default-notes-file "Inbox")
-                      "* TODO %^{Task}\n  %i%?\n  %a\n" :prepend t)
+     :config
+     (setq org-log-into-drawer t
 
-                     ("j" "Journal entry" plain
-                      (file+datetree (concat org-directory "/journal.org"))
-                      "     %<%H:%M> %?\n     %i\n     %a\n\n"
-                      :unnarrowed t)
+           org-capture-templates
+           '(("p" "Personal")
 
-                     ("J" "Journal entry with date" plain
-                      (file+datetree+prompt (concat org-directory "/journal.org"))
-                      "     %<%H:%M> %?\n     %i\n     %a\n\n"
-                      :unnarrowed t))))
+             ("pt" "ToDo Entry" entry
+              (file+headline org-default-notes-file "Inbox")
+              (file "~/Org.d/Templates/todo.org") :empty-lines-after 2)
+
+             ("pj" "Journal Entry" plain
+              (file+datetree (concat org-directory "/journal.org"))
+              "     %<%H:%M> %?\n     %i\n     %a\n\n"
+              :unnarrowed t)
+
+             ("pJ" "Journal entry with date" plain
+              (file+datetree+prompt (concat org-directory "/journal.org"))
+              "     %<%H:%M> %?\n     %i\n     %a\n\n"
+              :unnarrowed t))))
    #+END_SRC
 
 ** Refiling
