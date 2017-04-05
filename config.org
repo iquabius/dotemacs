@@ -524,7 +524,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
              ("pt" "ToDo Entry" entry
               (file+headline org-default-notes-file "Inbox")
-              (file "~/Org.d/Templates/todo.org") :empty-lines-after 2)
+              (file "~/.emacs.d/org-templates/todo.orgcaptmpl")
+              :empty-lines-before 1 :empty-lines-after 2)
 
              ("pj" "Journal Entry" plain
               (file+datetree (concat org-directory "/journal.org"))
@@ -544,7 +545,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
              ("wj" "Journal Entry" plain
               (file+datetree (concat org-directory "/work-journal.org"))
-              (file "~/Org.d/Templates/journal.org")))))
+              (file "~/.emacs.d/org-templates/journal.orgcaptmpl")
+              :empty-lines-after 1))))
    #+END_SRC
 
 ** Refiling
