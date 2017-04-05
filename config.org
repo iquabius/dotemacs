@@ -533,6 +533,17 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
                       :unnarrowed t))))
    #+END_SRC
 
+** Refiling
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package org
+     :config (setq org-refile-targets '((org-agenda-files . (:maxlevel . 3)))
+                   org-refile-allow-creating-parent-nodes 'confirm
+                   org-refile-use-outline-path 'file
+                   org-refile-use-cache t
+                   org-outline-path-complete-in-steps nil))
+   #+END_SRC
+
 ** Tasks
 
 *** Context Tags
