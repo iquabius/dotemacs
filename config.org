@@ -534,7 +534,17 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
              ("pJ" "Journal entry with date" plain
               (file+datetree+prompt (concat org-directory "/journal.org"))
               "     %<%H:%M> %?\n     %i\n     %a\n\n"
-              :unnarrowed t))))
+              :unnarrowed t)
+
+             ("w" "Work")
+
+             ("wl" "Logbook Entry" entry
+              (file+datetree (concat org-directory "/work-logbook.org"))
+              "** %U - %^{Activity}  :LOG:")
+
+             ("wj" "Journal Entry" plain
+              (file+datetree (concat org-directory "/work-journal.org"))
+              (file "~/Org.d/Templates/journal.org")))))
    #+END_SRC
 
 ** Refiling
