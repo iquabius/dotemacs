@@ -589,6 +589,44 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
             ("DONE" :foreground "#2aa198" :weight bold))) ; Solarized cyan
     #+END_SRC
 
+** Exporting
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package ox-latex
+     :defer 3
+     :config
+     (add-to-list 'org-latex-classes
+                  '("abntex2"
+                    "\\documentclass[12pt,
+                                    a4paper,
+                                    oneside,
+                                    chapter=TITLE,
+                                    section=TITLE,
+                                    english,
+                                    brazil,
+                                    ]{abntex2}
+                    \\usepackage{lmodern}
+                    \\usepackage[T1]{fontenc}
+                    \\usepackage[AUTO]{inputenc}
+                    \\usepackage{indentfirst}
+                    \\usepackage{color}
+                    \\usepackage{graphicx}
+                    \\usepackage{microtype}
+
+                    % Pacotes de citacoes
+                    \\usepackage[brazilian,hyperpageref]{backref}
+                    \\usepackage[alf,abnt-etal-cite=2,abnt-etal-list=0]{abntex2cite}
+                    \\usepackage{csquotes}
+
+                    [NO-DEFAULT-PACKAGES]
+                    [PACKAGES]
+                    [EXTRA]"
+
+                    ("\\section{%s}" . "\\section*{%s}")
+                    ("\\subsection{%s}" . "\\subsection*{%s}")
+                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+   #+END_SRC
+
 ** Appearance
 
    I like to see an outline of pretty bullets instead of a list of asterisks.
