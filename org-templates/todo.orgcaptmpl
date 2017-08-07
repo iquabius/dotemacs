@@ -1,5 +1,4 @@
-* TODO %^{Task}
-  %?
+* TODO %^{Task}%?
   :LOGBOOK:
   - Captured on: %U
   - [[%l][Reference Point]]
