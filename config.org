@@ -394,6 +394,20 @@ colors with the color they represent as background.”
     (add-hook hook 'rainbow-mode)))
 #+END_SRC
 
+** Elm
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package elm-mode
+     :ensure t
+     :mode "\\.elm\\'"
+     :config
+     (use-package flycheck-elm
+       :ensure t
+       :config
+       (add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+     (add-to-list 'company-backends 'company-elm))
+   #+END_SRC
+
 ** JavaScript
 
 #+BEGIN_SRC emacs-lisp
