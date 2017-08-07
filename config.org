@@ -716,6 +716,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 ** Exporting
 
    #+BEGIN_SRC emacs-lisp
+   (setq org-export-coding-system 'utf-8)
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp
    (use-package ox-latex
      :defer 3
      :config
