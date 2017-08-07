@@ -946,6 +946,21 @@ Special mode for Git's configuration file.
    #+END_SRC
 
 
+*** Switching Dictionaries Helper Function
+
+   #+BEGIN_SRC emacs-lisp
+   (defun fd-switch-dictionary()
+     (interactive)
+     (let* ((dic ispell-current-dictionary)
+            (change (if (string= dic "pt_BR") "english" "pt_BR")))
+       (ispell-change-dictionary change)
+       (message "Dictionary switched from %s to %s" dic change)
+       ))
+
+   (bind-key "<f8>" 'fd-switch-dictionary)
+   #+END_SRC
+
+
 *** Flyspell: On-the-fly spell checking
 
    #+BEGIN_SRC emacs-lisp
