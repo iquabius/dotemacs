@@ -531,6 +531,19 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
            ;; Don't warn about tasks' deadlines if they are scheduled
            org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled))
    #+END_SRC
+** Google Calendar Sync
+
+   Note: multiple calendars doesn't work well yet, see [[https://github.com/myuhe/org-gcal.el/issues/75#issuecomment-289771378][github issue]].
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package org-gcal
+     :ensure t
+     :config
+     (setq org-gcal-client-id "221107348670-bv77qnslvu96hpdsfskqvus7im7tm9vo.apps.googleusercontent.com"
+        org-gcal-client-secret "fAaFYYoGauyTx4eHV1GFX_4U"
+        org-gcal-file-alist '(("iquabius@gmail.com" .  "~/Org.d/gcal.org")
+                              ("ccs2scg30kpbtkjiifnndqkh7o@group.calendar.google.com" . "~/Org.d/work-gcal.org"))))
+   #+END_SRC
 
 ** Note Taking
 
