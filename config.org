@@ -462,6 +462,16 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
   (add-to-list 'tern-command "--no-port-file" 'append))
 #+END_SRC
 
+*** Json
+
+    #+BEGIN_SRC emacs-lisp
+    (use-package json-mode
+      :ensure t
+      :config
+      (setq json-reformat:indent-width 2
+            js-indent-level 2))
+    #+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
