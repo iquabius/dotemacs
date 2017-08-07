@@ -606,6 +606,33 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
          :ensure t)
    #+END_SRC
 
+** Reference Management
+   #+BEGIN_SRC emacs-lisp
+   (use-package org
+     :defer t
+     :config
+     ;; (setq
+     ;;  ;org-latex-pdf-process (list "latexmk -f -pdf %f")
+     ;;  reftex-default-bibliography "~/mega/Refs/research.bib")
+     (use-package cdlatex
+       :ensure t
+       :config (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
+
+     (eval-after-load 'org
+       '(setf org-highlight-latex-and-related '(latex)))
+
+     ;; Tell the latex export to use the minted package for source code
+     ;; coloration.
+     (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
+
+     (require 'ox-latex)
+     (setq org-latex-listings 'minted)
+
+     ;; (setq org-latex-minted-options
+     ;;       '(("fontsize" "\\scriptsize")
+     ;;         ("baselinestretch" "1.2")))
+     )
+  #+END_SRC
 ** Refiling
 
    #+BEGIN_SRC emacs-lisp
