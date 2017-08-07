@@ -633,6 +633,46 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      ;;         ("baselinestretch" "1.2")))
      )
   #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+  (use-package org-ref
+    :ensure t
+    :after org
+    :init
+    (use-package helm-bibtex
+      :ensure t
+      ;:after helm
+      :config
+      (setq bibtex-completion-bibliography "~/LaTeX/refs.bib"
+            bibtex-completion-library-path "~/Mega/Old/Files/ZotFiles"
+            bibtex-completion-pdf-field "File"
+            bibtex-completion-notes-path "~/Org.d/research.org"))
+
+    (setq reftex-default-bibliography '("~/LaTeX/refs.bib"))
+    (setq org-ref-bibliography-notes "~/Org.d/research.org"
+          org-ref-default-bibliography '("~/LaTeX/refs.bib")
+          org-ref-pdf-directory "~/mega/Files/Papers/")
+
+    (setq helm-bibtex-bibliography "~/LaTeX/refs.bib")
+    (setq helm-bibtex-library-path "~/Mega/Old/Files/ZotFiles")
+
+    (setq helm-bibtex-pdf-open-function 'org-open-file)
+
+    (setq helm-bibtex-notes-path "~/Org.d/research.org")
+    :config
+                                        ;(key-chord-define-global "uu" 'org-ref-cite-hydra/body)
+    ;; variables that control bibtex key format for auto-generation
+    ;; I want firstauthor-year-title-words
+    ;; this usually makes a legitimate filename to store pdfs under.
+    (setq bibtex-autokey-year-length 4
+          bibtex-autokey-name-year-separator "-"
+          bibtex-autokey-year-title-separator "-"
+          bibtex-autokey-titleword-separator "-"
+          bibtex-autokey-titlewords 2
+          bibtex-autokey-titlewords-stretch 1
+          bibtex-autokey-titleword-length 5))
+  #+END_SRC
+
 ** Refiling
 
    #+BEGIN_SRC emacs-lisp
