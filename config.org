@@ -700,19 +700,19 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 *** Task States
 
     #+BEGIN_SRC emacs-lisp
-    (setq org-todo-keywords '((sequence "TODO(t@/!)"
-                                        "NEXT(n/!)" "|" "DONE(d@)" "CANCELED(c@/!)")
-                              (sequence "WAITING(w@/!)" "SOMEDAY(s/!)" "|" "HOLD(h/!)"))
+    (setq org-todo-keywords
+          (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                  (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
 
-          org-log-done t
-          org-log-reschedule t
-          org-todo-keyword-faces
-          '(("TODO" . (:foreground "#859900" :weight bold)) ; Solarized green
-            ("NEXT" :foreground "#6c71c4" :weight bold)     ; Solarized violet
-            ("WAITING" :foreground "#cb4b16" :weight bold)   ; Solarized orange
-            ("HOLD" :foreground "#d33682" :weight bold)      ; Solarized magenta
-            ("CANCELED" :foreground "#586e75" :weight bold)
-            ("DONE" :foreground "#2aa198" :weight bold))) ; Solarized cyan
+    (setq org-todo-keyword-faces
+          (quote (("TODO" :foreground "red" :weight bold)
+                  ("NEXT" :foreground "blue" :weight bold)
+                  ("DONE" :foreground "forest green" :weight bold)
+                  ("WAITING" :foreground "orange" :weight bold)
+                  ("HOLD" :foreground "magenta" :weight bold)
+                  ("CANCELLED" :foreground "forest green" :weight bold)
+                  ("MEETING" :foreground "forest green" :weight bold)
+                  ("PHONE" :foreground "forest green" :weight bold))))
     #+END_SRC
 
 ** Exporting
