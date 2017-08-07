@@ -520,7 +520,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :defer t
      :bind ("C-c a" . org-agenda)
      :config
-     (setq org-agenda-files (quote ("~/Org.d/main.org" "~/Org.d/work.org"))
+     (setq org-agenda-files (quote ("~/Org.d/main.org" "~/Org.d/work.org" "~/Org.d/gcal.org"))
            ;; open agenda in current window
            org-agenda-window-setup (quote current-window)
 
@@ -561,6 +561,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
            org-capture-templates
            '(("p" "Personal")
 
+             ("pa" "Appointment" entry
+              (file "~/Org.d/gcal.org")
+              "* %?\n  :PROPERTIES:\n  :END:\n  %^T\n\n")
+
              ("pt" "ToDo Entry" entry
               (file+headline org-default-notes-file "Inbox")
               (file "~/.emacs.d/org-templates/todo.orgcaptmpl")
@@ -577,6 +581,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
               :unnarrowed t)
 
              ("w" "Work")
+
+             ("wa" "Appointment" entry
+              (file "~/Org.d/work-gcal.org")
+              "* %?\n  :PROPERTIES:\n  :END:\n  %^T\n\n")
 
              ("wl" "Logbook Entry" entry
               (file+datetree (concat org-directory "/work-logbook.org"))
