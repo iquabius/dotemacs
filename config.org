@@ -723,6 +723,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
    (use-package ox-latex
      :defer 3
      :config
+     (setq org-latex-caption-above '(table src-block)
+           org-latex-prefer-user-labels t)
      (add-to-list 'org-latex-classes
                   '("abntex2"
                     "\\documentclass[12pt,
@@ -743,7 +745,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
                     % Pacotes de citacoes
                     \\usepackage[brazilian,hyperpageref]{backref}
-                    \\usepackage[alf,abnt-etal-cite=2,abnt-etal-list=0]{abntex2cite}
+                    \\usepackage[alf
+                                ,abnt-etal-cite=2
+                                ,abnt-etal-list=2
+                                ]{abntex2cite}
                     \\usepackage{csquotes}
 
                     [NO-DEFAULT-PACKAGES]
