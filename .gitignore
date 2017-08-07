@@ -23,3 +23,6 @@
 /projectile.cache
 /tutorial/
 /recentf
+
+# JavaScript files
+/js/reveal.js/reveal.js-3.4.1/
