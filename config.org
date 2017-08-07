@@ -16,6 +16,10 @@
 - [ ] [[https://github.com/syohex/emacs-company-jedi/wiki][Company-jedi]]
 - [ ] [[https://github.com/TheBB/spaceline][Spaceline]]
 - [ ] [[http://cestlaz.github.io/posts/using-emacs-11-reveal/][Presentations with Org-mode and Reveal.js]]
+- [ ] [[https://www.youtube.com/watch?v%3DpjhRFMUxBB4][better-shell]]
+- [ ] [[https://www.youtube.com/watch?v%3D-2RXhPV_zgc][Org files workflow]]
+- [ ] [[https://www.emacswiki.org/emacs/Mingus][Mingus MPD Interface]]
+
 
 * Appearance
 ** Cyberpunk theme
