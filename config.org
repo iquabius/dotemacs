@@ -478,6 +478,13 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
             js-indent-level 2))
     #+END_SRC
 
+** Dockerfile
+   #+BEGIN_SRC emacs-lisp
+   (use-package dockerfile-mode
+     :ensure t
+     :defer t)
+   #+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
