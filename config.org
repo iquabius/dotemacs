@@ -340,9 +340,7 @@ is part of GNU Emacs.
    (use-package auctex-latexmk
      :ensure t
      :defer t
-     :init (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup)
-     :config (setq TeX-parse-self t        ; Enable parse on load.
-                   TeX-auto-save t))       ; Enable parse on save.
+     :init (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup))
    #+END_SRC
 
 ** Autocompletion with company-auctex
