@@ -473,6 +473,7 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
     #+BEGIN_SRC emacs-lisp
     (use-package json-mode
       :ensure t
+      :defer t
       :config
       (setq json-reformat:indent-width 2
             js-indent-level 2))
