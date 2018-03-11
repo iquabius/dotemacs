@@ -485,6 +485,14 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
      :defer t)
    #+END_SRC
 
+** Yaml
+   #+BEGIN_SRC emacs-lisp
+   (use-package yaml-mode
+     :ensure t
+     :defer t
+     :mode ("\\.yaml\\'" "\\.yml\\'"))
+   #+END_SRC
+
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
