@@ -417,13 +417,8 @@ colors with the color they represent as background.”
 ** JavaScript
 
 #+BEGIN_SRC emacs-lisp
-(use-package js2-mode
-  :ensure t
-  :defer t
-  :mode "\\.js\\'"
-  :interpreter "node"
-  :config
-  (unbind-key "M-j" js2-mode-map)
+(defun set-js2-defaults ()
+  "Sets default values for js and json files."
   (setq-default js2-electric-keys nil
                 ;; Disable parse errors and strict warning. Flycheck FTW ;)
                 js2-mode-show-parse-errors nil
@@ -431,6 +426,15 @@ colors with the color they represent as background.”
                 js2-highlight-level 3  ; Try to highlight most ECMA built-ins
                 js2-basic-offset 2
                 ))
+
+(use-package js2-mode
+  :ensure t
+  :defer t
+  :mode "\\.js\\'"
+  :interpreter "node"
+  :config
+  (unbind-key "M-j" js2-mode-map)
+  (set-js2-defaults))
 #+END_SRC
 
 Major mode for React JSX files:
