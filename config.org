@@ -247,7 +247,9 @@ customize settings in [[file:init.el][init.el]].
 
 #+BEGIN_SRC emacs-lisp
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
+;; check first if the file exists
+(when (file-exists-p custom-file)
+  (load custom-file))
 #+END_SRC
 
 * Flycheck
