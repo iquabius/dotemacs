@@ -483,6 +483,36 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
             js-indent-level 2))
     #+END_SRC
 
+** Haskell
+
+   Haskell major mode from [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L2079][lunaryorn]]:
+
+   #+BEGIN_SRC emacs-lisp
+   ;;; Customization
+   (use-package validate                   ; Validate options
+   :ensure t)
+
+   (use-package haskell-mode
+     :ensure t
+     :defer t
+     :bind (:map haskell-mode-map
+                 ("M-." . haskell-mode-jump-to-def-or-tag)
+                 ("C-c m i j" . haskell-navigate-imports)
+                 ("C-c m i s" . haskell-sort-imports)
+                 ("C-c m i a" . haskell-align-imports)
+                 ;; Recommended Haskell Mode bindings, see
+                 ;; http://haskell.github.io/haskell-mode/manual/latest/Interactive-Haskell.html
+                 )
+     :config
+     (validate-setq haskell-tags-on-save t ; Regenerate TAGS on save
+                    haskell-process-log t  ; Show log for GHCI process
+                    ;; Remove unused imports and auto-import modules
+                    haskell-process-suggest-remove-import-lines t
+                    haskell-process-auto-import-loaded-modules t))
+   #+END_SRC
+
+   TODO: Document “C-c m” [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L306][key binding prefix]]
+
 ** Dockerfile
    #+BEGIN_SRC emacs-lisp
    (use-package dockerfile-mode
