@@ -511,7 +511,22 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
                     haskell-process-auto-import-loaded-modules t))
    #+END_SRC
 
-   TODO: Document “C-c m” [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L306][key binding prefix]]
+   Haskell pretty printing
+
+   #+BEGIN_SRC fish
+   stack install hindent
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp
+   (use-package hindent
+     :ensure t
+     :defer t
+     :init
+     (add-hook 'haskell-mode-hook #'hindent-mode))
+   #+END_SRC
+
+   - TODO: Document “C-c m” [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L306][key binding prefix]]
+   - [[https://github.com/bixuanzju/emacs.d/blob/master/emacs-init.org#haskell-mode][Here's another example configuration]] from bixuanzju
 
 ** Dockerfile
    #+BEGIN_SRC emacs-lisp
