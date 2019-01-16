@@ -396,7 +396,7 @@ colors with the color they represent as background.”
   :ensure t
   :after ccs-mode
   :init
-  (dolist (hook '(css-mode-hook web-mode-hook))
+  (dolist (hook '(css-mode-hook haskell-mode-hook web-mode-hook))
     (add-hook hook 'rainbow-mode)))
 #+END_SRC
 
