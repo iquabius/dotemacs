@@ -23,6 +23,10 @@
 
 (package-initialize)
 
+(unless (package-installed-p 'diminish)
+  (package-refresh-contents)
+  (package-install 'diminish))
+
 ;;; Bootstrap use-package
 ;; Install use-package if it's not already installed.
 ;; use-package is used to configure the rest of the packages.
@@ -32,8 +36,8 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
+(require 'diminish) ;; if you use :diminish
+(require 'bind-key) ;; if you use any :bind variant
 ;(setq use-package-verbose t)
 
 ;;; Load the config
