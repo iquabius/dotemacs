@@ -916,6 +916,8 @@ org src buffer.
 
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
+  :bind (:map projectile-mode-map
+             ("C-c p" . projectile-command-map))
   :ensure t
   :diminish projectile-mode
   :commands projectile-mode
