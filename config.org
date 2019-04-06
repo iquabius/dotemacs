@@ -934,8 +934,7 @@ org src buffer.
   Here's how we tell Emacs to use the font we want:
 
   #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist
-               '(font . "Monoid-12"))
+  (set-default-font "Monoid 12")
   #+END_SRC
 
 * Git Integration
