@@ -694,6 +694,17 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      :ensure t)
    #+END_SRC
 
+** LaTeX Integration
+
+   This enables us to type =<s + TAB= to expand to a =#+begin_src ... #+end_src=
+   block.
+   https://github.com/syl20bnr/spacemacs/issues/11798#issuecomment-454941024
+
+   #+begin_src emacs-lisp
+   (when (version<= "9.2" (org-version))
+       (require 'org-tempo))
+   #+end_src
+
 ** Reference Management
    #+BEGIN_SRC emacs-lisp
    (use-package org
