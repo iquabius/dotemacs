@@ -536,6 +536,13 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
    - TODO: Document “C-c m” [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L306][key binding prefix]]
    - [[https://github.com/bixuanzju/emacs.d/blob/master/emacs-init.org#haskell-mode][Here's another example configuration]] from bixuanzju
 
+** Lua
+
+   #+begin_src emacs-lisp
+   (use-package lua-mode
+     :ensure t)
+   #+end_src
+
 ** Dockerfile
    #+BEGIN_SRC emacs-lisp
    (use-package dockerfile-mode
