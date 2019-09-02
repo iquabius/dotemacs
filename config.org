@@ -483,6 +483,13 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
             js-indent-level 2))
     #+END_SRC
 
+** TypeScript
+
+   #+begin_src emacs-lisp
+   (use-package typescript-mode
+     :ensure t)
+   #+end_src
+
 ** Haskell
 
    Haskell major mode from [[https://github.com/lunaryorn/old-emacs-configuration/blob/master/init.el#L2079][lunaryorn]]:
