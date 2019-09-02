@@ -4,7 +4,12 @@
 (setq mc/cmds-to-run-for-all
       '(
         autopair-insert-opening
+        dired-do-flagged-delete
+        dired-next-line
+        dired-previous-line
+        end-of-visual-line
         kill-visual-line
+        org-cdlatex-underscore-caret
         org-cycle
         org-end-of-line
         org-metaright
@@ -14,4 +19,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        org-fill-paragraph
+        org-open-at-point
+        wdired-finish-edit
         ))
