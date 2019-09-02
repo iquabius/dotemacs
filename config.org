@@ -19,6 +19,7 @@
 - [ ] [[https://www.youtube.com/watch?v%3DpjhRFMUxBB4][better-shell]]
 - [ ] [[https://www.youtube.com/watch?v%3D-2RXhPV_zgc][Org files workflow]]
 - [ ] [[https://www.emacswiki.org/emacs/Mingus][Mingus MPD Interface]]
+- [ ] [[https://github.com/SavchenkoValeriy/emacs-powerthesaurus][Powerthesaurus integration for Emacs]]
 
 
 * Appearance
