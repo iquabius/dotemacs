@@ -639,6 +639,29 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
                               ("ccs2scg30kpbtkjiifnndqkh7o@group.calendar.google.com" . "~/Org.d/work-gcal.org"))))
    #+END_SRC
 
+** Org-roam
+
+   #+begin_src emacs-lisp
+   (use-package org-roam
+     :ensure t
+     :hook
+     (after-init . org-roam-mode)
+     :custom
+     (org-roam-directory "~/Org.d/Roam")
+     :init
+     (require 'org-roam-protocol)
+     ;sqlite3
+     (add-to-list 'exec-path "/home/iqb/Android/Sdk/platform-tools")
+     (setq org-roam-graph-viewer "/usr/bin/chromium-browser")
+     :bind (:map org-roam-mode-map
+                 (("C-c n l" . org-roam)
+                  ("C-c n f" . org-roam-find-file)
+                  ("C-c n g" . org-roam-graph-show))
+                 :map org-mode-map
+                 (("C-c n i" . org-roam-insert))
+                 (("C-c n I" . org-roam-insert-immediate))))
+   #+end_src
+
 ** Note Taking
 
    #+BEGIN_SRC emacs-lisp
