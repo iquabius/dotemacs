@@ -783,19 +783,19 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
       (setq bibtex-completion-bibliography "~/LaTeX/refs.bib"
             bibtex-completion-library-path "~/Mega/Old/Files/ZotFiles"
             bibtex-completion-pdf-field "File"
-            bibtex-completion-notes-path "~/Org.d/research.org"))
+            bibtex-completion-notes-path "~/Org.d/Refs/research.org"))
 
     (setq reftex-default-bibliography '("~/LaTeX/refs.bib"))
-    (setq org-ref-bibliography-notes "~/Org.d/research.org"
+    (setq org-ref-bibliography-notes "~/Org.d/Refs/research.org"
           org-ref-default-bibliography '("~/LaTeX/refs.bib")
-          org-ref-pdf-directory "~/mega/Files/Papers/")
+          org-ref-pdf-directory "~/Mega/Old/Files/ZotFiles")
 
     (setq helm-bibtex-bibliography "~/LaTeX/refs.bib")
     (setq helm-bibtex-library-path "~/Mega/Old/Files/ZotFiles")
 
     (setq helm-bibtex-pdf-open-function 'org-open-file)
 
-    (setq helm-bibtex-notes-path "~/Org.d/research.org")
+    (setq helm-bibtex-notes-path "~/Org.d/Refs/research.org")
     :config
                                         ;(key-chord-define-global "uu" 'org-ref-cite-hydra/body)
     ;; variables that control bibtex key format for auto-generation
