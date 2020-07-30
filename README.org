@@ -1,0 +1,13 @@
+* Org-mode
+
+  I've briefly used Emacs for programming. Now I use it only for Org-mode.
+
+** Useful keybindings
+
+   # https://emacs.stackexchange.com/questions/2206/i-want-to-have-the-kbd-tags-for-my-blog-written-in-org-mode
+   # https://gist.github.com/alphapapa/995b70c65aea8fd2f2ff1c612b9d75f6
+
+   - https://stackoverflow.com/questions/17156595/in-emacs-org-mode-how-to-narrow-display-to-two-subtrees-in-two-separate-files
+   - =(org-narrow-to-subtree)=: @@html:<kbd>C-x n s</kbd>@@
+   - =(widen)=: @@html:<kbd>C-x n w</kbd>@@
+     - not bound :/
