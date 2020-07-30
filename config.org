@@ -10,6 +10,11 @@
 
 * Packages to Take a Look
 
+- [ ] [[https://github.com/WolfeCub/ox-mdx-deck/][Org-mode to mdx-deck exporter]]
+  - Apresentações (slides) com React
+- [ ] [[https://org-roam.readthedocs.io/en/master/installation/][Org-roam]]
+  - Integration with VS Code
+    - https://github.com/vscode-org-mode/vscode-org-mode/issues/161
 - [ ] Hydra
 - [ ] [[https://github.com/proofit404/anaconda-mode][Anaconda mode]]
 - [ ] [[http://cestlaz.github.io/posts/using-emacs-13-yasnippet/][Elpy mode]]
