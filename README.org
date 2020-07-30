@@ -11,3 +11,18 @@
    - =(org-narrow-to-subtree)=: @@html:<kbd>C-x n s</kbd>@@
    - =(widen)=: @@html:<kbd>C-x n w</kbd>@@
      - not bound :/
+* Solutions to Some Common Problems
+
+  Error: “Failed to download 'GNU ELPA' archive.”
+
+  Solution:
+
+  #+BEGIN_SRC bash
+  gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40
+  #+END_SRC
+
+  “You should replace the key with the value you copied from the debug log” — https://emacs.stackexchange.com/a/54060/12553
+
+  Maybe installing gnu-elpa-keyring-update solves the problem permanently:
+
+  http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html
