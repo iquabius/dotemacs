@@ -776,6 +776,48 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      )
   #+END_SRC
 
+   Ref: https://emacs.stackexchange.com/a/29455/12553
+   # TODO: Wrap in (use-package org) to execute only when in org-mode
+   #+begin_src emacs-lisp
+   (defun org-abntex-quote-block (quote-block contents info)
+     "Transcode a QUOTE-BLOCK element from Org to LaTeX (abntex style).
+       CONTENTS holds the contents of the block.  INFO is a plist
+       holding contextual information."
+     (org-latex--wrap-label
+      quote-block
+      (format "\\begin{citacao}\n%s\\end{citacao}" contents) info))
+
+
+   ;; To add a :menu-entry look source code of ox-latex.el
+   (org-export-define-derived-backend 'abntex 'latex
+     :translate-alist '((quote-block . org-abntex-quote-block)))
+
+
+   (defun org-latex-export-to-abntex
+     (&optional async subtreep visible-only body-only ext-plist)
+     "Export current buffer to a LaTeX file using abntex.
+
+   https://github.com/abntex/abntex2."
+     (interactive)
+     (let ((outfile (org-export-output-file-name ".tex" subtreep)))
+       (org-export-to-file 'abntex outfile
+         async subtreep visible-only body-only ext-plist)))
+
+   (defun org-latex-export-to-abntex-file ()
+       (interactive)
+       (org-latex-export-to-abntex nil nil nil t))
+
+   (bind-keys ("C-c e" . org-latex-export-to-abntex-file))
+   ;; To export on save: https://emacs.stackexchange.com/a/52453/12553
+
+   ;; (use-package tex-site
+   ;;   :ensure ox
+   ;;   :config
+   ;;   (add-hook 'org-mode-hook
+   ;; 	    (lambda ())
+   #+end_src
+
+
   #+BEGIN_SRC emacs-lisp
   (use-package org-ref
     :ensure t
