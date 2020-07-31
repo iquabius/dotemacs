@@ -338,8 +338,9 @@ is part of GNU Emacs.
                 (TeX-fold-mode 1)
                 (turn-on-reftex)
                 (visual-line-mode)
-                (setq
-                 TeX-clean-confirm nil)))))
+                (setq TeX-clean-confirm nil)
+                ;; (List of Listings), produced by the listings package.
+                (add-to-list 'LaTeX-clean-intermediate-suffixes "\\.lol")))))
 #+END_SRC
 
 ** LaTeXmk support for AUCTeX with [[https://github.com/tom-tan/auctex-latexmk][auctex-latexmk]]
