@@ -987,8 +987,11 @@ org src buffer.
 * Font
   Here's how we tell Emacs to use the font we want:
 
+  # https://emacs.stackexchange.com/questions/2501/how-can-i-set-default-font-in-emacs
+  # https://stackoverflow.com/questions/6026713/how-do-i-change-emacs-default-font-size-and-font-type
   #+BEGIN_SRC emacs-lisp
-  (set-default-font "Monoid 12")
+  ; (set-frame-font "Menlo 18" nil t)
+  (set-default-font "Menlo 12")
   #+END_SRC
 
 * Git Integration
