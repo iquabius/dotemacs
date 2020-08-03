@@ -15,6 +15,7 @@
 
 # Installed packages
 /elpa/
+/straight
 
 # Cache files and settings for packages
 /company-statistics-cache.el

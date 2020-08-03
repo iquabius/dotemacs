@@ -36,7 +36,6 @@ boxes around the mode line.
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package cyberpunk-theme
   :if (window-system)
-  :ensure t
   :init
   (progn
     (load-theme 'cyberpunk t)
@@ -58,7 +57,6 @@ theme I want to go to.
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package dracula-theme
   :if (window-system)
-  :ensure t
   :config (load-theme 'dracula t))
 #+END_SRC
 
@@ -70,8 +68,7 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 (use-package solarized-theme
   :defer 10
   :init
-  (setq solarized-use-variable-pitch nil)
-  :ensure t)
+  (setq solarized-use-variable-pitch nil))
 #+END_SRC
 
 ** Spacegray theme
@@ -79,7 +76,6 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package spacegray-theme
   :if (window-system)
-  :ensure t
   :config
   (load-theme 'spacegray))
 #+END_SRC
@@ -89,7 +85,6 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package monokai-theme
   :if (window-system)
-  :ensure t
   :init
   (setq monokai-use-variable-pitch nil))
 #+END_SRC
@@ -99,7 +94,6 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package waher-theme
   :if (window-system)
-  :ensure t
   :init
   (load-theme 'waher))
 #+END_SRC
@@ -108,7 +102,6 @@ Here's some configuration for [[https://github.com/bbatsov/solarized-emacs/][bba
 
 #+BEGIN_SRC emacs-lisp
 (use-package zenburn-theme
-  :ensure t
   :config (load-theme 'zenburn t))
 #+END_SRC
 
@@ -152,7 +145,6 @@ Taken from [[https://github.com/danielmai/.emacs.d][Daniel Mai's Configuration]]
 #+BEGIN_SRC emacs-lisp
 (use-package highlight-indent-guides
   :disabled t
-  :ensure t
   :init
   (setq highlight-indent-guides-method 'character)
   :config
@@ -167,7 +159,6 @@ Color each variable, and downplay standard key words.
 (use-package color-identifiers-mode
   :disabled t                           ; Too slow as of v1.0.0, and comments
                                         ; are also initially colorized
-  :ensure t
   :diminish color-identifiers-mode
   :init
   (add-hook 'after-init-hook 'global-color-identifiers-mode))
@@ -180,7 +171,6 @@ all grey after moving the focus out of the Emacs window.
 
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package powerline
-  :ensure t
   :init
   (setq powerline-default-separator 'wave)
   :config
@@ -193,11 +183,10 @@ all grey after moving the focus out of the Emacs window.
 abbreviation and automatically expand it into function templates."
 
 #+BEGIN_SRC emacs-lisp
-(use-package yasnippet
-  :ensure t
-  :defer t
-  :diminish (yas-minor-mode . " Ⓨ")
-  :init (yas-global-mode))
+;(use-package yasnippet
+;  :defer t
+;  :diminish (yas-minor-mode . " Ⓨ")
+;  :init (yas-global-mode))
 #+END_SRC
 
 “[[http://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for
@@ -221,7 +210,6 @@ retrieve and display completion candidates.”
 
 #+BEGIN_SRC emacs-lisp
 (use-package company-statistics
-  :ensure t
   :after company
   :config (company-statistics-mode))
 #+END_SRC
@@ -230,7 +218,6 @@ Display documentation in a popup with [[https://www.github.com/expez/company-qui
 
 #+BEGIN_SRC emacs-lisp
 (use-package company-quickhelp
-  :ensure t
   :init
   (setq company-quickhelp-delay nil)
   :config
@@ -241,7 +228,6 @@ Display documentation in a popup with [[https://www.github.com/expez/company-qui
 ** Autocompletion for emoji: :watch: -> ⌚️
    #+BEGIN_SRC emacs-lisp
    (use-package company-emoji
-     :ensure t
      :after company
      :init (add-to-list 'company-backends 'company-emoji))
    #+END_SRC
@@ -266,7 +252,6 @@ is part of GNU Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
-  :ensure t
   :defer 1
   :config
   (global-flycheck-mode))
@@ -276,16 +261,14 @@ is part of GNU Emacs.
 
 #+BEGIN_SRC emacs-lisp
   (use-package helm
-    :ensure t
     :diminish helm-mode
     :init (progn
             (setq helm-ff-auto-update-initial-value t)
             (require 'helm-config)
-            (use-package helm-ag :defer 10  :ensure t)
+            (use-package helm-ag :defer 10)
             (setq helm-M-x-fuzzy-match t)
             (helm-mode)
             (use-package helm-swoop
-              :ensure t
               :config
               (setq helm-swoop-split-direction 'split-window-horizontally)
               (setq helm-swoop-use-fuzzy-match t)
@@ -321,7 +304,7 @@ is part of GNU Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package tex-site
-  :ensure auctex
+  :straight auctex
   :config
   (progn
     (setq
@@ -347,7 +330,6 @@ is part of GNU Emacs.
 
    #+BEGIN_SRC emacs-lisp
    (use-package auctex-latexmk
-     :ensure t
      :defer t
      :init (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup))
    #+END_SRC
@@ -356,7 +338,6 @@ is part of GNU Emacs.
 
    #+BEGIN_SRC emacs-lisp
    (use-package company-auctex
-     :ensure t
      :defer t
      :init
      (add-hook 'LaTeX-mode-hook 'company-auctex-init))
@@ -380,7 +361,6 @@ is part of GNU Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package web-mode
-  :ensure t
   :defer t
   :mode "\\.html\\'"
   :config (setq web-mode-enable-current-element-highlight t
@@ -400,7 +380,6 @@ colors with the color they represent as background.”
 
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-mode
-  :ensure t
   :after ccs-mode
   :init
   (dolist (hook '(css-mode-hook haskell-mode-hook web-mode-hook))
@@ -411,11 +390,9 @@ colors with the color they represent as background.”
 
    #+BEGIN_SRC emacs-lisp
    (use-package elm-mode
-     :ensure t
      :mode "\\.elm\\'"
      :config
      (use-package flycheck-elm
-       :ensure t
        :config
        (add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
      (add-to-list 'company-backends 'company-elm))
@@ -435,7 +412,6 @@ colors with the color they represent as background.”
                 ))
 
 (use-package js2-mode
-  :ensure t
   :defer t
   :mode "\\.js\\'"
   :interpreter "node"
@@ -448,7 +424,6 @@ Major mode for React JSX files:
 
 #+BEGIN_SRC emacs-lisp
 (use-package rjsx-mode
-  :ensure t
   :after js2-mode
   :mode (("\\.jsx\\'" . rjsx-mode)))
 #+END_SRC
@@ -465,13 +440,11 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 
 #+BEGIN_SRC emacs-lisp
 (use-package tern
-  :ensure t
   :defer t
 ;  :diminish tern-mode
   :init
   (add-hook 'js2-mode-hook 'tern-mode)
   (use-package company-tern
-    :ensure t
     :after company
     :init (add-to-list 'company-backends 'company-tern))
   :config
@@ -483,7 +456,6 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 
     #+BEGIN_SRC emacs-lisp
     (use-package json-mode
-      :ensure t
       :defer t
       :config
       (setq json-reformat:indent-width 2
@@ -493,8 +465,7 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 ** TypeScript
 
    #+begin_src emacs-lisp
-   (use-package typescript-mode
-     :ensure t)
+   (use-package typescript-mode)
    #+end_src
 
 ** Haskell
@@ -503,11 +474,10 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 
    #+BEGIN_SRC emacs-lisp
    ;;; Customization
-   (use-package validate                   ; Validate options
-   :ensure t)
+   ; Validate options
+   (use-package validate)
 
    (use-package haskell-mode
-     :ensure t
      :defer t
      :bind (:map haskell-mode-map
                  ("M-." . haskell-mode-jump-to-def-or-tag)
@@ -533,7 +503,6 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 
    #+BEGIN_SRC emacs-lisp
    (use-package hindent
-     :ensure t
      :defer t
      :init
      (add-hook 'haskell-mode-hook #'hindent-mode))
@@ -542,7 +511,6 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
    #+BEGIN_SRC emacs-lisp
    (use-package flycheck-haskell
      ;; :disabled t
-     :ensure
      :config
      (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
    #+END_SRC
@@ -553,21 +521,18 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 ** Lua
 
    #+begin_src emacs-lisp
-   (use-package lua-mode
-     :ensure t)
+   (use-package lua-mode)
    #+end_src
 
 ** Dockerfile
    #+BEGIN_SRC emacs-lisp
    (use-package dockerfile-mode
-     :ensure t
      :defer t)
    #+END_SRC
 
 ** Yaml
    #+BEGIN_SRC emacs-lisp
    (use-package yaml-mode
-     :ensure t
      :defer t
      :mode ("\\.yaml\\'" "\\.yml\\'"))
    #+END_SRC
@@ -575,8 +540,7 @@ Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript 
 ** Fish Shell
 
 #+BEGIN_SRC emacs-lisp
-(use-package fish-mode
-  :ensure t)
+(use-package fish-mode)
 #+END_SRC
 
 * Multiple Cursors
@@ -585,7 +549,6 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
 #+BEGIN_SRC emacs-lisp
 (use-package multiple-cursors
-  :ensure t
   :bind
   (("C->" . mc/mark-next-like-this)
    ("C-<" . mc/mark-previous-like-this)
@@ -613,9 +576,10 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 * Org-mode
 ** Agenda
 
-   #+BEGIN_SRC emacs-lisp
+   I've disabled this because of error: (void-function org-dynamic-block-define)
+
+   #+BEGIN_SRC emacs-lisp :tangle no
    (use-package org
-     :defer t
      :bind ("C-c a" . org-agenda)
      :config
      (setq org-agenda-files (quote ("~/Org.d/main.org" "~/Org.d/work.org" "~/Org.d/gcal.org"))
@@ -635,9 +599,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    Note: multiple calendars doesn't work well yet, see [[https://github.com/myuhe/org-gcal.el/issues/75#issuecomment-289771378][github issue]].
 
-   #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp :tangle no
    (use-package org-gcal
-     :ensure t
+     :after org
      :config
      (setq org-gcal-client-id "221107348670-bv77qnslvu96hpdsfskqvus7im7tm9vo.apps.googleusercontent.com"
         org-gcal-client-secret "fAaFYYoGauyTx4eHV1GFX_4U"
@@ -649,7 +613,6 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    #+begin_src emacs-lisp
    (use-package org-roam
-     :ensure t
      :hook
      (after-init . org-roam-mode)
      :custom
@@ -733,7 +696,6 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
    #+BEGIN_SRC emacs-lisp
    (use-package ox-reveal
      :disabled t
-     :ensure t
      :config
      (defun emacs-d (filename)
        "Expand FILENAME relative to `user-emacs-directory'."
@@ -743,8 +705,7 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      ;; (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/")
      (setq org-reveal-mathjax t))
 
-   (use-package htmlize
-     :ensure t)
+   (use-package htmlize)
    #+END_SRC
 
 ** LaTeX Integration
@@ -761,13 +722,13 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 ** Reference Management
    #+BEGIN_SRC emacs-lisp
    (use-package org
-     :defer t
+     ; org-gcal error: (void-function org-dynamic-block-define)
+     :straight org-plus-contrib
      :config
      (setq
       ;org-latex-pdf-process (list "latexmk -f -pdf %f")
       reftex-default-bibliography "~/Org.d/Refs/research.bib")
      (use-package cdlatex
-       :ensure t
        :config (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
 
      (eval-after-load 'org
@@ -777,13 +738,18 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      ;; coloration.
      (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
 
-     (require 'ox-latex)
      (setq org-latex-listings 'minted)
 
      ;; (setq org-latex-minted-options
      ;;       '(("fontsize" "\\scriptsize")
      ;;         ("baselinestretch" "1.2")))
      )
+
+  ;; The New Org-mode Exporter Framework
+  ; error Could not find package "ox-latex" in recipe repositories
+  (use-package ox-latex
+    :after org
+    :straight f)
   #+END_SRC
 
    Ref: https://emacs.stackexchange.com/a/29455/12553
@@ -830,11 +796,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
   #+BEGIN_SRC emacs-lisp
   (use-package org-ref
-    :ensure t
     :after org
     :init
     (use-package helm-bibtex
-      :ensure t
       ;:after helm
       :config
       (setq bibtex-completion-bibliography "~/LaTeX/refs.bib"
@@ -915,7 +879,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    #+BEGIN_SRC emacs-lisp
    (use-package ox-latex
-     :defer 3
+     :after org
+     :straight f
      :config
      (setq org-latex-caption-above '(table src-block)
            org-latex-prefer-user-labels t)
@@ -962,7 +927,6 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    #+BEGIN_SRC emacs-lisp :tangle no
    (use-package org-bullets
-     :ensure t
      :config
      (add-hook 'org-mode-hook #'org-bullets-mode))
    #+END_SRC
@@ -1024,7 +988,6 @@ org src buffer.
 (use-package projectile
   :bind (:map projectile-mode-map
              ("C-c p" . projectile-command-map))
-  :ensure t
   :diminish projectile-mode
   :commands projectile-mode
   :init (progn
@@ -1032,7 +995,6 @@ org src buffer.
           (setq projectile-enable-caching t)
           (setq projectile-completion-system 'helm)
           (use-package helm-projectile
-            :ensure t
             :config (helm-projectile-on))))
 #+END_SRC
 
@@ -1052,7 +1014,6 @@ Magit provides a nice interface to the /git/ version control system.
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :ensure t
     :bind (("C-x g" . magit-status)))
     :config
     (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
@@ -1071,7 +1032,6 @@ as inserted, modified or deleted.
 
 #+BEGIN_SRC emacs-lisp
   (use-package git-gutter
-    :ensure t
     :diminish git-gutter-mode
     :init
     (global-git-gutter-mode t)
@@ -1089,15 +1049,13 @@ as inserted, modified or deleted.
 Special mode for Git's configuration file.
 
 #+BEGIN_SRC emacs-lisp
-(use-package gitconfig-mode
-  :ensure t)
+(use-package gitconfig-mode)
 #+END_SRC
 
 =.gitignore= mode:
 
 #+BEGIN_SRC emacs-lisp
-(use-package gitignore-mode
-  :ensure t)
+(use-package gitignore-mode)
 #+END_SRC
 
 * Writing & Research
@@ -1177,12 +1135,10 @@ Special mode for Git's configuration file.
 
     #+BEGIN_SRC emacs-lisp
     (use-package flyspell-correct
-      :ensure t
       :bind (:map flyspell-mode-map
              ("C-;" . flyspell-correct-word-generic)
              ("C-:" . flyspell-correct-previous-word-generic))
       :init (use-package flyspell-correct-helm
-              :ensure t
               :config (setq flyspell-correct-interface 'flyspell-correct-helm)))
     #+END_SRC
 
@@ -1203,7 +1159,6 @@ Special mode for Git's configuration file.
      (org-zotxt-insert-reference-link '(4)))
 
    (use-package zotxt
-     :ensure t
      :defer t
      :bind (:map org-mode-map
             ;; Bind something to replace the awkward C-u C-c " i
@@ -1228,7 +1183,6 @@ Special mode for Git's configuration file.
 
    #+BEGIN_SRC emacs-lisp
    (use-package zotelo
-     :ensure t
      :commands (zotelo-set-collection
                 zotelo-update-database
                 zotelo-minor-mode)
@@ -1358,7 +1312,6 @@ at point as the default value for occur.
 
 #+BEGIN_SRC emacs-lisp
 (use-package smooth-scrolling
-  :ensure t
   :init (setq smooth-scroll-margin 5)
   :config (smooth-scrolling-mode t))
 #+END_SRC
@@ -1378,7 +1331,6 @@ use 'on-screen' and/or 'beacon' to "guide your eyes while scrolling".
 
 #+BEGIN_SRC emacs-lisp :tangle no
 (use-package on-screen
-  :ensure t
   :config
   (on-screen-global-mode +1))
 #+END_SRC
@@ -1388,7 +1340,6 @@ use 'on-screen' and/or 'beacon' to "guide your eyes while scrolling".
 Ⓑ ⓑ ⒝ ḇ Ḇ ḅ Ḅ ɓ Ƀ ƅ Ƅ ƃ Ƃ Ɓ ß ƀ
 #+BEGIN_SRC emacs-lisp
 (use-package beacon
-  :ensure t
   :diminish (beacon-mode . " ⓑ")
   :config
   (beacon-mode 1))
@@ -1401,7 +1352,6 @@ For that reason I like to use the *undo-tree* package.
 
 #+BEGIN_SRC emacs-lisp
 (use-package undo-tree
-  :ensure t
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode))
@@ -1413,8 +1363,7 @@ For that reason I like to use the *undo-tree* package.
    [[https://github.com/larstvei/Try][Try]] allow us to try out packages without installing them.
 
    #+BEGIN_SRC emacs-lisp
-   (use-package try
-   	:ensure t)
+   (use-package try)
    #+END_SRC
 
 ** Typo-mode Ⓣ
@@ -1423,7 +1372,6 @@ For that reason I like to use the *undo-tree* package.
 
    #+BEGIN_SRC emacs-lisp
    (use-package typo
-     :ensure t
      :diminish (typo-mode . " Ⓣ")
      :bind (("C-c t t" . typo-mode)
             ("C-c l L" . typo-change-language))
@@ -1440,7 +1388,6 @@ For that reason I like to use the *undo-tree* package.
    #+BEGIN_SRC emacs-lisp
    (use-package hungry-delete
      :disabled t
-     :ensure t
      :config
      (global-hungry-delete-mode))
    #+END_SRC
@@ -1451,7 +1398,6 @@ For that reason I like to use the *undo-tree* package.
 
    #+BEGIN_SRC emacs-lisp
    (use-package expand-region
-     :ensure t
      :bind (("C-c v" . er/expand-region)))
    #+END_SRC
 
@@ -1494,7 +1440,6 @@ Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
 
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
-  :ensure t
   ; could use M-p for this
   :bind (([remap other-window] . ace-window)))
 #+END_SRC
@@ -1506,14 +1451,13 @@ Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
 
   #+BEGIN_SRC emacs-lisp
   (use-package ledger-mode
-    :ensure t
     :mode "\\.ledger\\'"
     :config
     (define-key ledger-mode-map (kbd "C-c c") 'ledger-mode-clean-buffer)
     (setq ledger-post-amount-alignment-at :decimal
           ledger-post-amount-alignment-column 49
           ledger-clear-whole-transactions t)
-    (use-package flycheck-ledger :ensure t))
+    (use-package flycheck-ledger))
   #+END_SRC
 
 * Keys & Key Bindings
@@ -1539,7 +1483,6 @@ popup.
 
 #+BEGIN_SRC emacs-lisp
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.4)
