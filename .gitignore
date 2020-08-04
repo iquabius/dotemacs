@@ -17,12 +17,14 @@
 /elpa/
 
 # Cache files and settings for packages
-/company-statistics-cache.el
+company-statistics-cache.el
+company-statistics-cache.el~
 /eshell/
 /projectile-bookmarks.eld
 /projectile.cache
 /tutorial/
-/recentf
+recentf
+recentf~
 
 # JavaScript files
 /js/reveal.js/reveal.js-3.4.1/
