@@ -462,8 +462,9 @@ npm install -g tern
 #+END_SRC
 
 Use [[https://github.com/proofit404/company-tern][company-tern]] for JavaScript autocompletion.
+The maintainer removed company-tern, it's gone. I could still use just =tern= though.
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package tern
   :ensure t
   :defer t
