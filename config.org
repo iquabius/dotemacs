@@ -672,7 +672,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    #+begin_src emacs-lisp
    (use-package company-org-roam
-     :straight (:host github :repo "org-roam/company-org-roam")
+     :ensure t
+     :after org-roam company org
+     :pin MELPA
      :config
      (push 'company-org-roam company-backends))
    #+end_src
