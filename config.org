@@ -662,6 +662,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
    location.href ='org-protocol://roam-ref?template=w&ref='+ encodeURIComponent(location.href)+ '&title='+ encodeURIComponent(document.title)
    #+end_src
 
+   Also set up =org-protocol=:
+   https://www.orgroam.com/manual/Installation-_00281_0029.html#Installation-_00281_0029.
+
    #+begin_src emacs-lisp
    (use-package org-roam
      :ensure t
