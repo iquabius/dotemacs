@@ -291,12 +291,12 @@ is part of GNU Emacs.
               (setq helm-swoop-use-fuzzy-match t)
               ;; "M-i" is used in ergonomic key bindings to move to previous line
               (unbind-key "M-i" helm-swoop-map)
-              :bind (("s-i" . helm-swoop)
-                     ("s-I" . helm-swoop-back-to-last-point)
+              :bind (("C-f" . helm-swoop)
+                     ("M-f" . helm-swoop-back-to-last-point)
                      :map helm-swoop-map
-                     ("s-i" . helm-multi-swoop-all-from-helm-swoop)
+                     ("C-f" . helm-multi-swoop-all-from-helm-swoop)
                      :map isearch-mode-map
-                     ("s-i" . helm-swoop-from-isearch))))
+                     ("C-f" . helm-swoop-from-isearch))))
     :config
     ;; "M-i" is used in ergonomic key bindings to move to previous line
     (unbind-key "M-i" helm-find-files-map)
