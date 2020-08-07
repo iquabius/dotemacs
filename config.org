@@ -1565,6 +1565,10 @@ Some characters to use: ¬ » · ◦ ↩ ▶ ➺ ➳ ➵ ➼ ¶
 
 Ergonomic natigation inspired by [[https://ergoemacs.github.io/][Ergoemacs]].
 
+I should also change the keys for copying, cutting, and pasting. It would be
+consistent with the browser and VS Code. I should probably just set up
+[[http://ergoemacs.github.io/][ergoemacs-mode]], it'll be easier. And maybe it works with doom-emacs.
+
 #+BEGIN_SRC emacs-lisp
 (bind-keys ("M-i" . previous-line)
            ;; Couldn't use shift here because it starts selection
