@@ -1360,8 +1360,10 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
     (add-to-list 'default-frame-alist '(fullscreen . fullboth)))
 
 ;; Allows you to “undo” (and “redo”) changes in the window configuration
-;; ‘C-c left’ and ‘C-c right’
+;; Mnemonic following ‘Ctrl+z’ and ‘Ctrl+Shift+z’ but with the Super/Windows key
 (winner-mode t)
+(bind-key "s-z" 'winner-undo winner-mode-map) ; ‘Super+z’
+(bind-key "s-Z" 'winner-redo winner-mode-map) ; ‘Super+Shift+z’
 
 ;; Default window splitting direction
 ;; 1: horizontally
@@ -1382,6 +1384,7 @@ The following function for ~occur-dwim~ is taken from [[https://github.com/abo-a
 at point as the default value for occur.
 
 #+BEGIN_SRC emacs-lisp
+; This can be removed since I use helm-swoop
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)
