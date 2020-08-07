@@ -612,6 +612,21 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 #+END_SRC
 
 * Org-mode
+** Apps
+
+   Set up the apps I want to open linked files with:
+
+   #+begin_src emacs-lisp
+   (use-package org
+     :defer t
+     :config
+     ;; https://emacs.stackexchange.com/a/30601/12553
+     (setq org-file-apps
+       '(("\\.mp4\\'" . "vlc %s")
+         ("\\.pdf\\'" . default)
+         (auto-mode . emacs))))
+   #+end_src
+
 ** Agenda
 
    #+BEGIN_SRC emacs-lisp
