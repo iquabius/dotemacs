@@ -7,37 +7,41 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
-;;; Set up package archives
-(require 'package)
-(setq package-enable-at-startup nil)
-(setq package-archives
-      ;; Package archives
-      '(("GNU ELPA"     . "http://elpa.gnu.org/packages/")
-        ("MELPA Stable" . "https://stable.melpa.org/packages/")
-        ("MELPA"        . "https://melpa.org/packages/"))
-      ;; Prefer MELPA Stable over GNU and MELPA. Fall back only if necessary.
-      package-archive-priorities
-      '(("MELPA Stable" . 10)
-        ("GNU ELPA"     . 5)
-        ("MELPA"        . 0)))
+;;; Set up package manager
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(package-initialize)
+; To avoid setting :straight t everytime
+(setq straight-use-package-by-default t)
 
-(unless (package-installed-p 'diminish)
-  (package-refresh-contents)
-  (package-install 'diminish))
+;; Is there a way to do this with straight.el?
+(straight-use-package 'diminish)
+; org-gcal error: (void-function org-dynamic-block-define)
+;(straight-use-package 'org-plus-contrib)
 
 ;;; Bootstrap use-package
 ;; Install use-package if it's not already installed.
 ;; use-package is used to configure the rest of the packages.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  ;; We could avoid refreshing twice on the first run:
+  ;; https://github.com/raxod502/straight.el/blob/5d046ad09413f3aba6198229e392cdd3f07e77ee/benchmark/straight-bench.el#L225-L231
+(straight-use-package 'use-package)
+;(use-package use-package-ensure-system-package
+;  :straight t)
 
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish) ;; if you use :diminish
-(require 'bind-key) ;; if you use any :bind variant
+;(eval-when-compile
+;  (require 'use-package))
+;(require 'diminish) ;; if you use :diminish
+;(require 'bind-key) ;; if you use any :bind variant
 ;(setq use-package-verbose t)
 
 ;;; Load the config
