@@ -653,6 +653,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
    #+BEGIN_SRC emacs-lisp
    (use-package org-gcal
+     ;; stable.melpa.org is not updated
+     ;; https://github.com/myuhe/org-gcal.el/issues/102#issuecomment-642859748
+     :pin MELPA
      :ensure t
      :config
      (setq org-gcal-client-id "221107348670-bv77qnslvu96hpdsfskqvus7im7tm9vo.apps.googleusercontent.com"
