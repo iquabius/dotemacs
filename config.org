@@ -708,7 +708,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      ; More interesting bindings, like org-roam-switch-to-buffer, here:
      ; https://www.ianjones.us/own-your-second-brain
      :bind (:map org-roam-mode-map
-                 (("C-c n l" . org-roam)
+                 (("C-c n c" . org-roam-capture)
+                  ("C-c n l" . org-roam)
                   ("C-c n f" . org-roam-find-file)
                   ("C-c n g" . org-roam-graph-show))
                  :map org-mode-map
