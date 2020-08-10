@@ -1396,6 +1396,11 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 (electric-pair-mode 1)
 
 ;; Increase fill column (default is 70) and enable automatic filling
+; “I noticed that when composing mail using Doom’s notmuch module, hard line
+; breaks are added in paragraphs. This makes for a terrible mobile reading
+; experience.”
+; Should I replace auto-fill-mode with word-wrap-mode?
+; https://blog.jethro.dev/posts/migrating_to_doom_emacs/
 (setq-default fill-column 80)
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (diminish 'auto-fill-function " Ⓕ")
