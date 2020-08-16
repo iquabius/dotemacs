@@ -577,7 +577,9 @@ The maintainer removed company-tern, it's gone. I could still use just =tern= th
 
 #+BEGIN_SRC emacs-lisp
 (use-package fish-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq fish-indent-offset 2))
 #+END_SRC
 
 * Multiple Cursors
