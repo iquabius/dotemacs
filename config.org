@@ -672,14 +672,14 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
    bookmarklet with title "Org-roam Notes" and the following URL:
 
    #+begin_src js
-   javascript:location.href ='org-protocol://roam-ref?template=w&ref='+ encodeURIComponent(location.href)+ '&title='+ encodeURIComponent(document.title)
+   javascript:location.href ='org-protocol://roam-ref?template=r&ref='+ encodeURIComponent(location.href)+ '&title='+ encodeURIComponent(document.title)
    #+end_src
 
    The second is to create a shortcut in Shortkeys extension to execute the
    following JavaScript code:
 
    #+begin_src js
-   location.href ='org-protocol://roam-ref?template=w&ref='+ encodeURIComponent(location.href)+ '&title='+ encodeURIComponent(document.title)
+   location.href ='org-protocol://roam-ref?template=r&ref='+ encodeURIComponent(location.href)+ '&title='+ encodeURIComponent(document.title)
    #+end_src
 
    Also set up =org-protocol=:
@@ -705,9 +705,9 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
               :unnarrowed t)))
      (setq org-roam-capture-ref-templates
            ;; See above how to use this template
-           '(("w" "websites" plain (function org-roam-capture--get-point)
+           '(("r" "refs" plain (function org-roam-capture--get-point)
               "%?"
-              :file-name "websites/${slug}"
+              :file-name "refs/${slug}"
               :head "#+title: ${title}\n#+roam_key: ${ref}\n\n"
               :unnarrowed t)))
      ; More interesting bindings, like org-roam-switch-to-buffer, here:
