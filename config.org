@@ -744,7 +744,8 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
       (org-journal-date-prefix "#+title: ")
       (org-journal-file-format "%Y/%m-%d.org")
       (org-journal-dir "~/Org.d/Roam/journal")
-      (org-journal-date-format "%A, %d %B %Y"))
+      (org-journal-date-format "%A, %d %B %Y")
+      (org-journal-time-prefix "\n** "))
     #+end_src
 
 ** Note Taking
