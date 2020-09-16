@@ -748,6 +748,30 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
       (org-journal-time-prefix "\n** "))
     #+end_src
 
+*** Searching
+
+    Org-roam [[https://www.orgroam.com/manual/Full_002dtext-search-interface-with-Deft.html#Full_002dtext-search-interface-with-Deft][documentation recommends Deft]], but in the author's Emacs config I
+    found out about [[https://github.com/Wilfred/deadgrep][deadgrep]], which works with [[https://github.com/BurntSushi/ripgrep][ripgrep (rg)]] — a grep
+    alternative.
+
+    It's optimized for code searching but I think it can work well for Org-roam
+    directory.
+
+    First install ripgrep:
+
+    #+begin_src sh
+    sudo apt install -y ripgrep
+    #+end_src
+
+    Then set up deadgrep:
+
+    #+begin_src emacs-lisp
+    (use-package deadgrep
+      :ensure t
+      :if (executable-find "rg")
+      :bind ("M-s g" . deadgrep))
+    #+end_src
+
 ** Note Taking
 
    #+BEGIN_SRC emacs-lisp
