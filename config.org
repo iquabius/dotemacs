@@ -1224,46 +1224,92 @@ Special mode for Git's configuration file.
 
 ** Spell Checking
 
-*** Aspell
+*** Hunspell
 
-   Install spell checker utility and dictionary:
+   Install spellchecker utility and dictionaries:
 
    #+BEGIN_SRC fish
-   sudo apt-get install -y aspell aspell-en aspell-pt-br
+   sudo apt install -y hunspell hunspell-en-us hunspell-pt-br
    #+END_SRC
+
+   #+begin_quote
+   Hunspell is a free spell checker and used by LibreOffice, Firefox and Chromium. It allows to set multiple dictionaries - even different dictionaries per language (aspell, for example also allows multiple dictionaries, but only for the same language). — [[https://200ok.ch/posts/2020-08-22_setting_up_spell_checking_with_multiple_dictionaries.html][Setting up spell checking with multiple dictionaries in Emacs - 200ok]]
+   #+end_quote
+
+   Set up Ispell to use Hunspell:
 
    #+BEGIN_SRC emacs-lisp
    (use-package ispell
      :defer t
      ;:init (add-to-list 'company-backends 'company-ispell)
      :config
+     ;; Configure `LANG`, otherwise ispell.el cannot find a 'default
+     ;; dictionary' even though multiple dictionaries will be configured
+     ;; in next line.
+     (setenv "LANG" "en_US")
      (setq
-      ispell-program-name "aspell"
-      ispell-dictionary "en_US"            ; Default dictionnary
-      ispell-silently-savep t              ; Don't ask when saving the private dict
+      ispell-program-name "hunspell"
+      ispell-dictionary "en_US,pt_BR"            ; Default dictionnary
+      ;ispell-silently-savep t              ; Don't ask when saving the private dict
       ;; Increase the height of the choices window to take our header line into
       ;; account.
       ispell-choices-win-default-height 5)
+
+     ;; ispell-set-spellchecker-params has to be called
+     ;; before ispell-hunspell-add-multi-dic will work
+     (ispell-set-spellchecker-params)
+     (when (> emacs-major-version 24)
+       (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
+     ;; For saving words to the personal dictionary, don't infer it from
+     ;; the locale, otherwise it would save to ~/.hunspell_de_DE.
+     (setq ispell-personal-dictionary "~/Mega/Data1/Apps/hunspell_personal.dic")
+
+     ;; The personal dictionary file has to exist, otherwise hunspell will
+     ;; silently not use it.
+     (unless (file-exists-p ispell-personal-dictionary)
+       (write-region "" nil ispell-personal-dictionary nil 0))
 
      (unless ispell-program-name
        (warn "No spell checker available.  Install Hunspell or ASpell for GNU/Linux.")))
    #+END_SRC
 
+   If you get an error saying that =ispell-hunspell-add-multi-dic= is void, run =list-load-path-shadows= to check if an older version of =ispell.el= is not shadowing a newer installation.
 
-*** Switching Dictionaries Helper Function
+   I had to delete the files =flyspell.el= and =ispell.el= from =/usr/share/emacs/site-lisp/dictionaries-common=. They were probably leftovers from a previous Emacs version I uninstalled. I found the answer on [[https://emacs.stackexchange.com/questions/21378/spell-check-with-multiple-dictionaries#comment36562_21379][StackExchange]].
 
-   #+BEGIN_SRC emacs-lisp
-   (defun fd-switch-dictionary()
-     (interactive)
-     (let* ((dic ispell-current-dictionary)
-            (change (if (string= dic "pt_BR") "english" "pt_BR")))
-       (ispell-change-dictionary change)
-       (message "Dictionary switched from %s to %s" dic change)
-       ))
+*** Issues with Hunspell
 
-   (bind-key "<f8>" 'fd-switch-dictionary)
-   #+END_SRC
+    I’ve noticed Hunspell 1.6.2 doesn’t work correctly for words with apostrophe. A lot of them are shown as misspelled when they are in fact correct.
 
+   Not working: didn't, didn’t, I’ve, I've.
+
+   Working: 'apple', ‘apple’, someone's, someone’s, can't, can’t.
+
+   More at [[https://github.com/en-wl/wordlist/issues/122][en-wl/wordlist#122 hunspell can't handle words with an apostrophe...]]
+
+   After reading [[https://battlepenguin.com/tech/aspell-and-hunspell-a-tale-of-two-spell-checkers/][Aspell and Hunspell: A Tale of Two Spell Checkers]] I also discovered some words which Hunspell offers incorrect spellings:
+
+   - excersized :: (0) supersized
+   - enterperuner :: (0) interpenetrate (1) serpentine
+   - presuing :: (0) presuming (1) pressing (2) pressuring (3) presupposing (4) pressurizing (5) presaging
+   - discoved :: (0) discoed (1) discover (2) discommoded
+
+   Aspell provides correct spellings:
+
+   - excersized :: exercised, excised, excesses, exercises, exorcised, exercise's, exercisers, exerciser's
+   - enterperuner :: entrepreneur, Enterprise, enterprise, interpreter, interferon
+   - presuing :: pressing, perusing, presuming, presiding, pressuring, praising, reusing, pursuing, presaging, pressings, pressing's
+   - discoved :: discoed, discover, discovers, discord, discovered, discorded, discovery, dissolved
+
+   #+begin_quote
+   So why is Hunspell used everywhere, even though Aspell seems to have superior correction capabilities? One of the issues is that Aspell is no longer maintained. It’s last release was in 20113, where as Hunspell is actively maintained and used in LibreOffice, Firefox, Thunderbird and Chrome. — [[https://battlepenguin.com/tech/aspell-and-hunspell-a-tale-of-two-spell-checkers/][Aspell and Hunspell: A Tale of Two Spell Checkers]]
+   #+end_quote
+
+   Besides, using multiple dictionaries with Aspell seems to be a lot harder:
+
+   - [[https://unix.stackexchange.com/questions/341714/][Use multi language dictionary with aspell - Unix & Linux Stack Exchange]]
+   - [[https://emacs.stackexchange.com/questions/27027][How to supply ispell program with dictionaries? - Emacs Stack Exchange]]
+   - [[https://stackoverflow.com/questions/50816864/][linux - adding many dictionaries to aspell - Stack Overflow]]
 
 *** Flyspell: On-the-fly spell checking
 
