@@ -1072,7 +1072,7 @@ Show a downward-pointing arrow instead of the usual ellipsis
 Here is some that could be used: ⤶, ⤷, ⤵, ↩, ⮰, ⮷, ↲, ↵, ↴, ⬎, ↷, ▼, ⋱
 
 #+BEGIN_SRC emacs-lisp
-(setq org-ellipsis "…")
+(setq org-ellipsis "⤵")
 #+END_SRC
 
 Use syntax highlighting in source blocks while editing.
@@ -1137,8 +1137,24 @@ org src buffer.
   # https://emacs.stackexchange.com/questions/2501/how-can-i-set-default-font-in-emacs
   # https://stackoverflow.com/questions/6026713/how-do-i-change-emacs-default-font-size-and-font-type
   #+BEGIN_SRC emacs-lisp
-  ; (set-frame-font "Menlo 18" nil t)
-  (set-default-font "Menlo 12")
+  ; None of these work for frames created with emacsclient -c
+  ;(set-frame-font "Monoid-12" nil t)
+  ;(set-default-font "Monoid-12")
+  ;(set-face-attribute 'default nil :font "Monoid" :height 120)
+
+  ;; Finally found a solution: https://stackoverflow.com/a/41355013/1787829
+  (defun aard-set-face (frame)
+    "Configure faces on frame creation"
+    (select-frame frame)
+    (if (display-graphic-p)
+        (progn
+          ;; [...] face changes [...]
+          (if (member "Monoid" (font-family-list))
+              (set-frame-font "Monoid-12")))
+      (progn
+        ;; set up different stuff for text console
+        )))
+  (add-hook 'after-make-frame-functions 'aard-set-face)
   #+END_SRC
 
 * Git Integration
