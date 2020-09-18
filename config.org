@@ -733,6 +733,15 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
      (push 'company-org-roam company-backends))
    #+end_src
 
+*** Org-cliplink
+
+    I couldn’t think of good keybinding for this.
+
+    #+begin_src emacs-lisp
+    (use-package org-cliplink
+      :ensure t)
+    #+end_src
+
 *** Journaling
 
     #+begin_src emacs-lisp
