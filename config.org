@@ -420,6 +420,17 @@ colors with the color they represent as background.”
        (add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
      (add-to-list 'company-backends 'company-elm))
    #+END_SRC
+** GraphQL
+
+   [[https://github.com/davazp/graphql-mode][~graphql-mode~]] allows editing GraphQL schema and queries.
+
+   #+begin_src emacs-lisp
+   (use-package graphql-mode
+        :ensure t
+        :defer t)
+   #+end_src
+
+   Alternative: [[https://github.com/jdormit/ob-graphql][jdormit/ob-graphql: GraphQL execution backend for org-babel]]
 
 ** JavaScript
 
