@@ -1181,12 +1181,16 @@ org src buffer.
 
 Magit provides a nice interface to the /git/ version control system.
 
+[[https://github.com/hlissner/doom-emacs/blob/e65e2e/modules/config/default/%2Bemacs-bindings.el#L359][~doom-emacs~ uses]] ~"C-c v g"~ or ~"SPC v g"~ (vim style).
+[[https://github.com/ergoemacs/ergoemacs-mode/blob/f9d6e3/ergoemacs-themes.el#L918][~ergoemacs-mode~ uses]] ~<apps> n m~ with ~<apps>~ being [[http://ergoemacs.org/emacs/emacs_menu_app_keys.html][the Menu key]].
+[[https://develop.spacemacs.org/layers/+source-control/git/README.html#working-with-git][Spacemacs uses]] ~M-m g s~ or ~SPC g s~.
+
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :ensure t
-    :bind (("C-x g" . magit-status)))
-    :config
-    (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+(use-package magit
+  :ensure t
+  :bind (("M-g s" . magit-status))
+  :config
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 #+END_SRC
 
 Integration between Magit and [[https://github.com/RichiH/vcsh][vcsh]]. See the experimental project on
