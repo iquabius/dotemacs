@@ -1193,13 +1193,17 @@ Magit provides a nice interface to the /git/ version control system.
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 #+END_SRC
 
-Integration between Magit and [[https://github.com/RichiH/vcsh][vcsh]]. See the experimental project on
-https://github.com/vanicat/magit-vcsh.
+Integration between Magit and [[https://github.com/RichiH/vcsh][vcsh]].
 
-#+BEGIN_SRC emacs-lisp
-;; TODO move it to "~/.emacs.d/"
-(load-file "~/Code/elisp/magit-vcsh/magit-vcsh.el")
-#+END_SRC
+#+begin_src emacs-lisp
+(use-package magit-vcsh
+  :after vcsh
+  :ensure t
+  :bind (("M-g h" . magit-vcsh-status)))
+
+(use-package vcsh
+  :ensure t)
+#+end_src
 
 Git-gutter shows a sign in the gutter area indicating whether a line
 as inserted, modified or deleted.
