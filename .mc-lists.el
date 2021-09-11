@@ -4,21 +4,28 @@
 (setq mc/cmds-to-run-for-all
       '(
         autopair-insert-opening
+        backward-sentence
+        beginning-of-visual-line
         dired-do-flagged-delete
         dired-next-line
         dired-previous-line
         end-of-visual-line
+        forward-sentence
         kill-visual-line
         org-cdlatex-underscore-caret
         org-cycle
         org-end-of-line
+        org-force-self-insert
         org-metaright
         org-self-insert-command
         org-yank
+        typo-cycle-dashes
+        typo-cycle-ellipsis
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        end-of-buffer
         org-fill-paragraph
         org-open-at-point
         wdired-finish-edit
