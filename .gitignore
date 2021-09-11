@@ -15,6 +15,7 @@
 
 # Installed packages
 /elpa/
+/emojis/
 
 # Cache files and settings for packages
 company-statistics-cache.el
@@ -22,6 +23,7 @@ company-statistics-cache.el~
 /eshell/
 /projectile-bookmarks.eld
 /projectile.cache
+/transient/
 /tutorial/
 recentf
 recentf~
