@@ -750,7 +750,11 @@ Yep multiple cursors FTW, [[http://emacsrocks.com/e13.html][Emacs Rocks]].
 
     #+begin_src emacs-lisp
     (use-package org-cliplink
-      :ensure t)
+      :ensure t
+      :config
+      (define-key org-mode-map (kbd "C-c y") 'org-cliplink)
+      :custom
+      (org-cliplink-max-length 120))
     #+end_src
 
 *** Journaling
